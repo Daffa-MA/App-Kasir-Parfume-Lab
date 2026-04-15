@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(del *)",
+      "Bash(gradlew *)",
+      "Bash(rd *)",
+      "Bash(set *)",
+      "Bash(\"%java_home%\\bin\\java.exe\" *)",
+      "Bash(gradlew.bat *)",
+      "Bash(findstr *)",
+      "Bash(mkdir *)",
+      "Bash(npm install)",
+      "Bash(taskkill *)",
+      "Bash(timeout *)",
+      "Bash(node *)",
+      "Bash(curl *)",
+      "Bash(.*.bat *)"
+    ]
+  },
+  "java.jdt.ls.java.home": "C:\\Program Files\\Android\\Android Studio\\jbr",
+  "$version": 3
+}

@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:orientation="vertical">
+
+    <!-- Header -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1E1E1E"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Payment"
+        android:textColor="#D4AF37"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Payment Method Tabs -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1E1E1E"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTabCash"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:backgroundTint="#D4AF37"
+            android:text="Cash"
+            android:textColor="#121212"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="8dp"
+            app:strokeColor="#D4AF37"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTabQR"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_weight="1"
+            android:backgroundTint="#2A2A2A"
+            android:text="QR"
+            android:textColor="#D4AF37"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="8dp"
+            app:strokeColor="#D4AF37"
+            app:strokeWidth="1dp" />
+
+    </LinearLayout>
+
+    <!-- Content Area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Total Amount Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1E1E1E"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Amount"
+                android:textColor="#AAAAAA"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txtPaymentTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Rp 0"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- CASH PANEL -->
+        <LinearLayout
+            android:id="@+id/panelCash"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                android:text="Cash Received"
+                android:textColor="#AAAAAA"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#1E1E1E"
+                android:orientation="horizontal"
+                android:padding="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="8dp"
+                    android:text="Rp"
+                    android:textColor="#D4AF37"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtCash"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="0"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:padding="16dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#666666"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Quick cash buttons -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnQuickExact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="4dp"
+                        android:backgroundTint="#2A2A2A"
+                        android:text="Exact"
+                        android:textColor="#D4AF37"
+                        android:textSize="12sp"
+                        app:cornerRadius="6dp"
+                        app:strokeColor="#D4AF37"
+                        app:strokeWidth="1dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnQuick20k"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="4dp"
+                        android:backgroundTint="#2A2A2A"
+                        android:text="20rb"
+                        android:textColor="#D4AF37"
+                        android:textSize="12sp"
+                        app:cornerRadius="6dp"
+                        app:strokeColor="#D4AF37"
+                        app:strokeWidth="1dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnQuick50k"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="4dp"
+                        android:backgroundTint="#2A2A2A"
+                        android:text="50rb"
+                        android:textColor="#D4AF37"
+                        android:textSize="12sp"
+                        app:cornerRadius="6dp"
+                        app:strokeColor="#D4AF37"
+                        app:strokeWidth="1dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnQuick100k"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="4dp"
+                        android:backgroundTint="#2A2A2A"
+                        android:text="100rb"
+                        android:textColor="#D4AF37"
+                        android:textSize="12sp"
+                        app:cornerRadius="6dp"
+                        app:strokeColor="#D4AF37"
+                        app:strokeWidth="1dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnQuick200k"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="4dp"
+                        android:backgroundTint="#2A2A2A"
+                        android:text="200rb"
+                        android:textColor="#D4AF37"
+                        android:textSize="12sp"
+                        app:cornerRadius="6dp"
+                        app:strokeColor="#D4AF37"
+                        app:strokeWidth="1dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnQuick500k"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="4dp"
+                        android:backgroundTint="#2A2A2A"
+                        android:text="500rb"
+                        android:textColor="#D4AF37"
+                        android:textSize="12sp"
+                        app:cornerRadius="6dp"
+                        app:strokeColor="#D4AF37"
+                        app:strokeWidth="1dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnQuick1000k"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:backgroundTint="#2A2A2A"
+                        android:text="1jt"
+                        android:textColor="#D4AF37"
+                        android:textSize="12sp"
+                        app:cornerRadius="6dp"
+                        app:strokeColor="#D4AF37"
+                        app:strokeWidth="1dp" />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <!-- Change Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#1E1E1E"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Change"
+                    android:textColor="#AAAAAA"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txtChange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Rp 0"
+                    android:textColor="#4CAF50"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Short Info -->
+            <TextView
+                android:id="@+id/txtShortInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:textColor="#FF5252"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <!-- QR PANEL -->
+        <LinearLayout
+            android:id="@+id/panelQR"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scan QR Code to Pay"
+                android:textColor="#AAAAAA"
+                android:textSize="16sp" />
+
+            <!-- Placeholder QR code area -->
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                android:background="#1E1E1E"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:src="@android:drawable/ic_menu_gallery"
+                    android:contentDescription="QR Code placeholder" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="QR"
+                    android:textColor="#D4AF37"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Ask customer to scan QR"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Bottom Button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1E1E1E"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btnProcessPayment"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:backgroundTint="#D4AF37"
+            android:text="Process Payment"
+            android:textColor="#121212"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="8dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

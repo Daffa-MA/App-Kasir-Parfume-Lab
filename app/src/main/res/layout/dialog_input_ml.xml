@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#1E1E1E">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Select Volume (ml)"
+            android:textColor="#D4AF37"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Preset ml buttons grid -->
+        <GridLayout
+            android:id="@+id/gridMlPresets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="4"
+            android:rowCount="2">
+
+            <Button
+                android:id="@+id/btnMl3"
+                style="@style/MlPresetButton"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/btnMl5"
+                style="@style/MlPresetButton"
+                android:text="5" />
+
+            <Button
+                android:id="@+id/btnMl10"
+                style="@style/MlPresetButton"
+                android:text="10" />
+
+            <Button
+                android:id="@+id/btnMl15"
+                style="@style/MlPresetButton"
+                android:text="15" />
+
+            <Button
+                android:id="@+id/btnMl20"
+                style="@style/MlPresetButton"
+                android:text="20" />
+
+            <Button
+                android:id="@+id/btnMl30"
+                style="@style/MlPresetButton"
+                android:text="30" />
+
+            <Button
+                android:id="@+id/btnMl50"
+                style="@style/MlPresetButton"
+                android:text="50" />
+
+            <Button
+                android:id="@+id/btnMl100"
+                style="@style/MlPresetButton"
+                android:text="100" />
+
+        </GridLayout>
+
+        <!-- Custom ml input -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Custom: "
+                android:textColor="#AAAAAA"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edtCustomMl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#D4AF37"
+                android:hint="Enter ml"
+                android:inputType="numberDecimal"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#666666"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <!-- Calculation Preview -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#2A2A2A"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calculation Preview"
+                android:textColor="#D4AF37"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Product:"
+                    android:textColor="#AAAAAA"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/txtDialogProductName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Volume:"
+                    android:textColor="#AAAAAA"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/txtDialogMl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Price/ml:"
+                    android:textColor="#AAAAAA"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/txtDialogPricePerMl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="#D4AF37" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Subtotal:"
+                    android:textColor="#D4AF37"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtDialogSubtotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp 0"
+                    android:textColor="#D4AF37"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Add to Cart Button -->
+        <Button
+            android:id="@+id/btnAddToCart"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#D4AF37"
+            android:text="Add to Cart"
+            android:textColor="#121212"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</ScrollView>

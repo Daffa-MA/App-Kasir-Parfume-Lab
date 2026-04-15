@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="brand_primary">#0F766E</color>
+    <color name="brand_primary_dark">#115E59</color>
+    <color name="brand_secondary">#334155</color>
+    <color name="brand_surface">#F8FAFC</color>
+    <color name="brand_background">#EEF2F7</color>
+    <color name="brand_text_primary">#0F172A</color>
+    <color name="brand_text_secondary">#475569</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Dark Theme Colors (POS) -->
+    <color name="pos_background">#0F0F0F</color>
+    <color name="pos_surface">#1F1F1F</color>
+    <color name="pos_surface_dark">#1A1A1A</color>
+    <color name="pos_surface_darker">#151515</color>
+
+    <!-- Accent Colors -->
+    <color name="pos_gold">#D4AF37</color>
+    <color name="pos_blue">#4A90D9</color>
+    <color name="pos_green">#4CAF50</color>
+    <color name="pos_red">#FF5252</color>
+
+    <!-- Text Colors (Dark Theme) -->
+    <color name="pos_text_primary">#FFFFFF</color>
+    <color name="pos_text_secondary">#AAAAAA</color>
+    <color name="pos_text_tertiary">#888888</color>
+    <color name="pos_text_hint">#666666</color>
+
+    <!-- Dividers and Borders -->
+    <color name="pos_divider">#333333</color>
+    <color name="pos_border">#404040</color>
+</resources>

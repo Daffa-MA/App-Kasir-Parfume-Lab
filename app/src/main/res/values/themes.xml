@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.AppKasir" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorPrimaryVariant">@color/brand_primary_dark</item>
+        <item name="colorSecondary">@color/brand_secondary</item>
+        <item name="android:colorBackground">@color/brand_background</item>
+        <item name="colorSurface">@color/brand_surface</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnBackground">@color/brand_text_primary</item>
+        <item name="colorOnSurface">@color/brand_text_primary</item>
+        <item name="android:statusBarColor">@color/brand_primary_dark</item>
+    </style>
+
+    <style name="MlPresetButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:textColor">@color/brand_primary</item>
+    </style>
+</resources>
