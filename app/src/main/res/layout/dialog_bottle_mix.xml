@@ -8,7 +8,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#1E1E1E">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,7 +71,8 @@
             android:layout_width="match_parent"
             android:layout_height="240dp"
             android:layout_marginTop="12dp"
-            android:paddingHorizontal="0dp" />
+            android:paddingHorizontal="0dp"
+            android:background="#1E1E1E" />
 
         <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
