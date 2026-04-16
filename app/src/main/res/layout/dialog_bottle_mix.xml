@@ -1,53 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:background="#1E1E1E">
 
-    <TextView
-        android:id="@+id/txtMixBottleInfo"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bottle 30 ml | Rp 7.500"
-        android:textColor="@color/pos_blue"
-        android:textSize="13sp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
 
-    <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="#272727"
+            android:layout_marginBottom="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Pilih Bibit Parfum"
+                android:textColor="@color/pos_gold"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtMixBottleInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Vial 3ml | Rp 1.500"
+                android:textColor="@color/pos_text_secondary"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pilih bibit parfum untuk campuran"
+                android:textColor="@color/pos_text_tertiary"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="#1E1E1E">
+
+        <EditText
+            android:id="@+id/edtMixSearch"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_search_input"
+            android:hint="Search bibit parfum"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/pos_text_primary"
+            android:textColorHint="@color/pos_text_hint"
+            android:textSize="13sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerMixPerfume"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="0dp" />
+
+        <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:text="Pilih bibit parfum untuk campuran"
-        android:textColor="@color/pos_text_tertiary"
-        android:textSize="11sp" />
-
-    <EditText
-        android:id="@+id/edtMixSearch"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_marginTop="10dp"
-        android:background="@android:drawable/edit_text"
-        android:hint="Search bibit parfum"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:textColor="@color/pos_text_primary"
-        android:textColorHint="@color/pos_text_hint" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerMixPerfume"
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:layout_marginTop="8dp" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:cardBackgroundColor="@color/pos_surface"
+        android:layout_marginTop="12dp"
+        app:cardBackgroundColor="#272727"
         app:cardCornerRadius="12dp"
-        app:cardElevation="0dp"
+        app:cardElevation="2dp"
         app:strokeColor="@color/pos_border"
         app:strokeWidth="1dp">
 
@@ -55,67 +86,175 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="14dp">
 
-            <TextView
-                android:id="@+id/txtMixTotalMl"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Total bibit: 0 ml"
-                android:textColor="@color/pos_text_secondary"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
-            <TextView
-                android:id="@+id/txtMixAlcoholInfo"
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Total Bibit"
+                        android:textColor="@color/pos_text_tertiary"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/txtMixTotalMl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="0 ml"
+                        android:textColor="@color/pos_text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="end"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Alkohol"
+                        android:textColor="@color/pos_text_tertiary"
+                        android:textSize="10sp"
+                        android:gravity="end" />
+
+                    <TextView
+                        android:id="@+id/txtMixAlcoholInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="0 ml"
+                        android:textColor="@color/pos_text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:gravity="end" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/pos_border" />
+
+            <LinearLayout
+                android:id="@+id/layoutAlcoholPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Alkohol: 0 ml (aktif jika > 100 ml)"
+                android:orientation="horizontal"
+                android:baselineAligned="false"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Harga Alkohol"
+                        android:textColor="@color/pos_text_tertiary"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/txtMixAlcoholPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Rp 0"
+                        android:textColor="@color/pos_blue"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="end"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Breakdown"
+                        android:textColor="@color/pos_text_tertiary"
+                        android:textSize="10sp"
+                        android:gravity="end" />
+
+                    <TextView
+                        android:id="@+id/txtMixSummary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Rp 0 + Rp 0"
+                        android:textColor="@color/pos_text_secondary"
+                        android:textSize="12sp"
+                        android:gravity="end" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/pos_border" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Pembayaran"
                 android:textColor="@color/pos_text_tertiary"
-                android:textSize="11sp" />
-
-            <TextView
-                android:id="@+id/txtMixAlcoholPrice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Harga alkohol: Rp 0"
-                android:textColor="@color/pos_blue"
-                android:textSize="11sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txtMixSummary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Perfume Rp 0 + Bottle Rp 0"
-                android:textColor="@color/pos_text_secondary"
                 android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/txtMixTotalPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Total: Rp 0"
+                android:layout_marginTop="8dp"
+                android:text="Rp 0"
                 android:textColor="@color/pos_gold"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddMixToCart"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="14dp"
+            android:backgroundTint="@color/pos_gold"
+            android:text="✓ Tambah ke Cart"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"
+            app:elevation="4dp" />
+
         </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAddMixToCart"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/pos_gold"
-        android:text="Tambah Mix ke Cart"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:cornerRadius="12dp" />
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

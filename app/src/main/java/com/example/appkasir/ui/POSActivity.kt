@@ -302,24 +302,27 @@ class POSActivity : AppCompatActivity() {
         val txtMixAlcoholPrice = dialogView.findViewById<TextView>(R.id.txtMixAlcoholPrice)
         val txtMixSummary = dialogView.findViewById<TextView>(R.id.txtMixSummary)
         val txtMixTotalPrice = dialogView.findViewById<TextView>(R.id.txtMixTotalPrice)
+        val layoutAlcoholPrice = dialogView.findViewById<View>(R.id.layoutAlcoholPrice)
         val btnAddMixToCart = dialogView.findViewById<View>(R.id.btnAddMixToCart)
 
-        txtMixBottleInfo.text = "${bottle.name} | ${bottle.capacityMl} ml | ${formatCurrency(bottle.price)}"
+        txtMixBottleInfo.text = "${bottle.name} | ${formatCurrency(bottle.price)}"
 
         val mixAdapter = PerfumeMixAdapter { selectedItems ->
             val summary = calculateMixSummary(selectedItems, bottle)
-            txtMixTotalMl.text = "Total bibit: ${summary.totalBibitMl.toInt()} ml"
+            txtMixTotalMl.text = "${summary.totalBibitMl.toInt()} ml"
 
             if (summary.totalBibitMl > 100.0) {
-                txtMixAlcoholInfo.text = "Alkohol: ${summary.totalBibitMl.toInt()} ml (aktif > 100 ml)"
-                txtMixAlcoholPrice.text = "Harga alkohol: ${formatCurrency(summary.alcoholSubtotal)}"
+                layoutAlcoholPrice.visibility = View.VISIBLE
+                txtMixAlcoholInfo.text = "${summary.totalBibitMl.toInt()} ml"
+                txtMixAlcoholPrice.text = formatCurrency(summary.alcoholSubtotal)
             } else {
-                txtMixAlcoholInfo.text = "Alkohol: 0 ml (aktif jika > 100 ml)"
-                txtMixAlcoholPrice.text = "Harga alkohol: ${formatCurrency(0)}"
+                layoutAlcoholPrice.visibility = View.GONE
+                txtMixAlcoholInfo.text = "0 ml"
+                txtMixAlcoholPrice.text = formatCurrency(0)
             }
 
-            txtMixSummary.text = "Perfume ${formatCurrency(summary.perfumeSubtotal)} + Bottle ${formatCurrency(summary.bottleSubtotal)}"
-            txtMixTotalPrice.text = "Total: ${formatCurrency(summary.total)}"
+            txtMixSummary.text = "${formatCurrency(summary.perfumeSubtotal)} + ${formatCurrency(summary.bottleSubtotal)}"
+            txtMixTotalPrice.text = formatCurrency(summary.total)
         }
 
         recyclerMixPerfume.layoutManager = LinearLayoutManager(this)

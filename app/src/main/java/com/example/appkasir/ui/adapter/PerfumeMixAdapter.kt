@@ -86,8 +86,28 @@ class PerfumeMixAdapter(
             }
 
             edtMl.setText(mlText)
-            edtMl.isEnabled = chkUse.isChecked
-            itemView.alpha = if (state.product.stockMl > 0) 1f else 0.45f
+            edtMl.isEnabled = chkUse.isChecked && state.isSelected
+
+            // Update visual states based on selection and availability
+            val isAvailable = state.product.stockMl > 0
+            val isSelected = state.isSelected
+            
+            if (isAvailable) {
+                itemView.alpha = 1f
+                // Update text colors based on selection
+                val textColor = if (isSelected) {
+                    itemView.context.getColor(android.R.color.white)
+                } else {
+                    itemView.context.getColor(android.R.color.darker_gray)
+                }
+                txtName.setTextColor(textColor)
+                txtMeta.alpha = if (isSelected) 1f else 0.7f
+            } else {
+                // Out of stock
+                itemView.alpha = 0.6f
+                txtName.setTextColor(itemView.context.getColor(android.R.color.darker_gray))
+                txtMeta.alpha = 0.5f
+            }
 
             chkUse.setOnCheckedChangeListener { _, isChecked ->
                 state.isSelected = isChecked
