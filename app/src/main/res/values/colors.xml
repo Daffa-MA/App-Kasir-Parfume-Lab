@@ -19,8 +19,11 @@
 
     <!-- Accent Colors -->
     <color name="pos_gold">#D4AF37</color>
+    <color name="pos_gold_muted">#2ED4AF37</color>
     <color name="pos_blue">#4A90D9</color>
+    <color name="pos_blue_bg">#244A90D9</color>
     <color name="pos_green">#4CAF50</color>
+    <color name="pos_green_bg">#1D4CAF50</color>
     <color name="pos_red">#FF5252</color>
 
     <!-- Text Colors (Dark Theme) -->

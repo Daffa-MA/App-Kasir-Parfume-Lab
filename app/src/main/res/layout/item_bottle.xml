@@ -1,123 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Bottle Item Layout - Blue accent (#4A90D9) instead of gold -->
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
-    android:clickable="true"
-    android:focusable="true"
-    app:cardBackgroundColor="#1E1E1E"
-    app:cardCornerRadius="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="6dp"
+    app:cardBackgroundColor="@color/pos_surface"
+    app:cardCornerRadius="14dp"
     app:cardElevation="2dp"
-    app:strokeColor="#4A90D9"
+    app:strokeColor="@color/pos_border"
     app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="12dp">
 
-        <!-- Bottle icon area -->
-        <TextView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="12dp"
-            android:background="#4A90D9"
-            android:gravity="center"
-            android:text="B"
-            android:textColor="#121212"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            app:cardBackgroundColor="@color/pos_blue_bg"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="B"
+                android:textColor="@color/pos_blue"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtBottleName"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLines="1"
                 android:text="Bottle Name"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
+                android:textColor="@color/pos_text_primary"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Capacity: "
-                    android:textColor="#AAAAAA"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/txtBottleCapacity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="30 ml"
-                    android:textColor="#4A90D9"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/txtBottleCapacity"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:orientation="horizontal">
+                android:text="30 ml"
+                android:textColor="@color/pos_text_secondary"
+                android:textSize="11sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Price: "
-                    android:textColor="#AAAAAA"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/txtBottlePrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rp 5.000"
-                    android:textColor="#4A90D9"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/txtBottlePrice"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Stock: "
-                    android:textColor="#AAAAAA"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/txtBottleStock"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="100 pcs"
-                    android:textColor="#4CAF50"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
-
+                android:text="Rp 5.000"
+                android:textColor="@color/pos_blue"
+                android:textSize="12sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/txtBottleStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/pos_blue_bg"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="4dp"
+            android:text="100 pcs"
+            android:textColor="@color/pos_blue"
+            android:textSize="10sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

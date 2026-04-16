@@ -3,20 +3,20 @@ package com.example.appkasir.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appkasir.R
-import com.example.pos.Product
-import java.text.NumberFormat
-import java.util.Locale
+import com.example.appkasir.ui.model.BottleProduct
+import com.example.appkasir.ui.model.formatCurrency
 
 class ProductAdapter(
-    private val onItemClick: (Product) -> Unit
+    private val onItemClick: (BottleProduct) -> Unit
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
-    private val items = mutableListOf<Product>()
+    private val items = mutableListOf<BottleProduct>()
 
-    fun submitList(newItems: List<Product>) {
+    fun submitList(newItems: List<BottleProduct>) {
         items.clear()
         items.addAll(newItems)
         notifyDataSetChanged()
@@ -34,16 +34,19 @@ class ProductAdapter(
     override fun getItemCount(): Int = items.size
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val imgProduct: ImageView = itemView.findViewById(R.id.imgProduct)
         private val tvName: TextView = itemView.findViewById(R.id.txtProductName)
         private val tvMeta: TextView = itemView.findViewById(R.id.txtPricePerMl)
-        private val currencyFormat = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
+        private val tvStock: TextView = itemView.findViewById(R.id.txtStock)
 
-        fun bind(item: Product) {
-            val priceValue = "${currencyFormat.format(item.pricePerMl)}/ml"
-            val stockValue = "Stok: ${item.stockMl.toInt()} ml"
+        fun bind(item: BottleProduct) {
+            val priceValue = "${formatCurrency(item.price)} | ${item.capacityMl} ml"
 
             tvName.text = item.name
-            tvMeta.text = "$priceValue | $stockValue"
+            tvMeta.text = priceValue
+            tvStock.text = if (item.stockPcs > 0) "${item.stockPcs} pcs" else "SOLD OUT"
+            imgProduct.setImageResource(R.drawable.ic_catalog_bottle)
+            itemView.alpha = if (item.stockPcs > 0) 1f else 0.4f
             itemView.setOnClickListener { onItemClick(item) }
         }
     }

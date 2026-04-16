@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.AppKasir" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/brand_primary</item>
-        <item name="colorPrimaryVariant">@color/brand_primary_dark</item>
-        <item name="colorSecondary">@color/brand_secondary</item>
-        <item name="android:colorBackground">@color/brand_background</item>
-        <item name="colorSurface">@color/brand_surface</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnBackground">@color/brand_text_primary</item>
-        <item name="colorOnSurface">@color/brand_text_primary</item>
-        <item name="android:statusBarColor">@color/brand_primary_dark</item>
+    <style name="Theme.AppKasir" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/pos_gold</item>
+        <item name="colorPrimaryVariant">@color/pos_gold</item>
+        <item name="colorSecondary">@color/pos_blue</item>
+        <item name="android:colorBackground">@color/pos_background</item>
+        <item name="colorSurface">@color/pos_surface_dark</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnBackground">@color/pos_text_primary</item>
+        <item name="colorOnSurface">@color/pos_text_primary</item>
+        <item name="android:statusBarColor">@color/pos_surface_darker</item>
     </style>
 
     <style name="MlPresetButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
@@ -18,6 +18,10 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">4dp</item>
         <item name="android:layout_columnWeight">1</item>
-        <item name="android:textColor">@color/brand_primary</item>
+        <item name="android:textColor">@color/pos_gold</item>
+        <item name="backgroundTint">@color/pos_surface</item>
+        <item name="strokeColor">@color/pos_border</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cornerRadius">10dp</item>
     </style>
 </resources>

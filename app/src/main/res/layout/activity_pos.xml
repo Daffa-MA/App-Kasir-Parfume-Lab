@@ -3,125 +3,195 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0F0F0F"
+    android:background="@color/pos_background"
     android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#1A1A1A"
-        app:cardElevation="8dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Perfume Lab POS"
-                android:textColor="#D4AF37"
-                android:textSize="28sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:gravity="center"
-                android:text="Point of Sale System"
-                android:textColor="#888888"
-                android:textSize="12sp" />
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#1A1A1A"
-        android:orientation="horizontal"
-        android:padding="16dp">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnTabPerfume"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="1"
-            android:backgroundTint="#D4AF37"
-            android:text="PERFUME"
-            android:textColor="#121212"
-            android:textStyle="bold"
-            app:cornerRadius="12dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnTabBottle"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:backgroundTint="#1F1F1F"
-            android:text="BOTTLE"
-            android:textColor="#4A90D9"
-            android:textStyle="bold"
-            app:cornerRadius="12dp"
-            app:strokeColor="#4A90D9"
-            app:strokeWidth="2dp" />
-
-    </LinearLayout>
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:cardBackgroundColor="#1F1F1F"
-        app:cardCornerRadius="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        app:cardBackgroundColor="@color/pos_surface_dark"
+        app:cardCornerRadius="20dp"
         app:cardElevation="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="18dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="14dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Perfume Lab POS"
+                android:textColor="@color/pos_gold"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Fast checkout - Offline-first"
+                android:textColor="@color/pos_text_tertiary"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTabPerfume"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/pos_gold"
+                    android:text="CATALOG MIX"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="14dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTabBottle"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/pos_surface"
+                    android:text="HIDDEN"
+                    android:textAllCaps="false"
+                    android:textColor="@color/pos_blue"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="14dp"
+                    app:strokeColor="@color/pos_blue"
+                    app:strokeWidth="1dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="12dp"
+        app:cardBackgroundColor="@color/pos_surface_dark"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="2dp"
+        app:strokeColor="@color/pos_border"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="12dp">
+            android:paddingStart="12dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/txtSyncStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="SYNC: LOADING"
+                android:textColor="@color/pos_text_secondary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/progressSync"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="6dp"
+                android:indeterminate="true"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRetrySync"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:backgroundTint="@color/pos_surface"
+                android:text="Retry"
+                android:textAllCaps="false"
+                android:textColor="@color/pos_gold"
+                android:textSize="12sp"
+                app:cornerRadius="10dp"
+                app:strokeColor="@color/pos_gold"
+                app:strokeWidth="1dp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="12dp"
+        app:cardBackgroundColor="@color/pos_surface_dark"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="2dp"
+        app:strokeColor="@color/pos_border"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="8dp">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="12dp"
+                android:layout_marginEnd="10dp"
                 android:contentDescription="Search"
                 android:src="@android:drawable/ic_menu_search"
-                android:tint="#888888" />
+                android:tint="@color/pos_text_tertiary" />
 
             <EditText
                 android:id="@+id/edtSearch"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="44dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:hint="Cari produk..."
-                android:padding="8dp"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#666666" />
+                android:hint="Cari produk botol"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:textColor="@color/pos_text_primary"
+                android:textColorHint="@color/pos_text_hint"
+                android:textSize="14sp" />
 
             <ImageButton
                 android:id="@+id/btnClearSearch"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
                 android:layout_gravity="center_vertical"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Clear search"
                 android:src="@android:drawable/ic_menu_close_clear_cancel"
-                android:tint="#FF5252"
+                android:tint="@color/pos_red"
                 android:visibility="gone" />
 
         </LinearLayout>
-
     </com.google.android.material.card.MaterialCardView>
 
     <LinearLayout
@@ -129,43 +199,87 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:padding="12dp">
+        android:paddingStart="12dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="12dp">
 
-        <!-- LEFT SIDE: CART -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.62"
+            android:layout_marginEnd="6dp"
+            app:cardBackgroundColor="@color/pos_surface_dark"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="2dp"
+            app:strokeColor="@color/pos_border"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="8dp"
+                    android:text="Bottle Catalog (Mix Bibit)"
+                    android:textColor="@color/pos_text_secondary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerProducts"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:clipToPadding="false"
+                    android:paddingStart="6dp"
+                    android:paddingTop="2dp"
+                    android:paddingEnd="6dp"
+                    android:paddingBottom="10dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.35"
-            android:orientation="vertical"
-            android:background="#1A1A1A"
-            android:paddingEnd="8dp">
+            android:layout_weight="0.38"
+            android:layout_marginStart="6dp"
+            android:orientation="vertical">
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                app:cardBackgroundColor="#1F1F1F"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="8dp">
+                app:cardBackgroundColor="@color/pos_surface_dark"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/pos_border"
+                app:strokeWidth="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="14dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="8dp">
+                        android:layout_marginBottom="6dp"
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="PERFUME"
-                            android:textColor="#D4AF37"
+                            android:text="Perfume"
+                            android:textColor="@color/pos_gold"
                             android:textSize="11sp"
                             android:textStyle="bold" />
 
@@ -174,24 +288,23 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Rp 0"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/pos_text_primary"
                             android:textSize="12sp"
                             android:textStyle="bold" />
-
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="8dp">
+                        android:layout_marginBottom="6dp"
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="ALCOHOL"
-                            android:textColor="#4A90D9"
+                            android:text="Alcohol"
+                            android:textColor="@color/pos_blue"
                             android:textSize="11sp"
                             android:textStyle="bold" />
 
@@ -199,34 +312,33 @@
                             android:id="@+id/txtAlcoholMl"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0ml"
-                            android:textColor="#888888"
-                            android:textSize="10sp"
-                            android:layout_marginEnd="8dp" />
+                            android:layout_marginEnd="6dp"
+                            android:text="0 ml"
+                            android:textColor="@color/pos_text_tertiary"
+                            android:textSize="10sp" />
 
                         <TextView
                             android:id="@+id/txtAlcoholSubtotal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Rp 0"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/pos_text_primary"
                             android:textSize="12sp"
                             android:textStyle="bold" />
-
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="12dp">
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="BOTTLE"
-                            android:textColor="#4A90D9"
+                            android:text="Bottle"
+                            android:textColor="@color/pos_blue"
                             android:textSize="11sp"
                             android:textStyle="bold" />
 
@@ -235,17 +347,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Rp 0"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/pos_text_primary"
                             android:textSize="12sp"
                             android:textStyle="bold" />
-
                     </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1.5dp"
-                        android:layout_marginBottom="12dp"
-                        android:background="#333333" />
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/pos_divider" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -256,9 +367,9 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="TOTAL"
-                            android:textColor="#D4AF37"
-                            android:textSize="14sp"
+                            android:text="Grand Total"
+                            android:textColor="@color/pos_gold"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -266,79 +377,64 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Rp 0"
-                            android:textColor="#D4AF37"
-                            android:textSize="16sp"
+                            android:textColor="@color/pos_gold"
+                            android:textSize="15sp"
                             android:textStyle="bold" />
-
                     </LinearLayout>
-
                 </LinearLayout>
-
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="PERFUME CART"
-                android:textColor="#D4AF37"
-                android:textStyle="bold"
-                android:textSize="12sp"
-                android:paddingTop="8dp"
-                android:paddingBottom="6dp" />
+                android:layout_marginTop="10dp"
+                android:paddingBottom="4dp"
+                android:text="Perfume Cart"
+                android:textColor="@color/pos_gold"
+                android:textSize="11sp"
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerPerfumeCart"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.5"
+                android:layout_weight="0.45"
                 android:clipToPadding="false"
-                android:paddingBottom="4dp"
+                android:paddingBottom="2dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="BOTTLE CART"
-                android:textColor="#4A90D9"
-                android:textStyle="bold"
-                android:textSize="12sp"
-                android:paddingTop="8dp"
-                android:paddingBottom="6dp" />
+                android:layout_marginTop="8dp"
+                android:paddingBottom="4dp"
+                android:text="Bottle Cart"
+                android:textColor="@color/pos_blue"
+                android:textSize="11sp"
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerBottleCart"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.5"
+                android:layout_weight="0.45"
                 android:clipToPadding="false"
-                android:paddingBottom="4dp"
+                android:paddingBottom="2dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCheckout"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="#D4AF37"
-                android:text="CHECKOUT"
-                android:textColor="#121212"
-                android:textStyle="bold"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/pos_gold"
+                android:text="Checkout"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
                 android:textSize="14sp"
-                app:cornerRadius="12dp"
-                app:elevation="8dp" />
-
+                android:textStyle="bold"
+                app:cornerRadius="14dp"
+                app:elevation="4dp" />
         </LinearLayout>
-
-        <!-- RIGHT SIDE: PRODUCTS -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerProducts"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.65"
-            android:clipToPadding="false"
-            android:paddingStart="8dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
     </LinearLayout>
-
 </LinearLayout>

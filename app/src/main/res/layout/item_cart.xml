@@ -3,78 +3,81 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="6dp"
-    app:cardBackgroundColor="#252525"
+    android:layout_marginStart="4dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginBottom="4dp"
+    app:cardBackgroundColor="@color/pos_surface"
     app:cardCornerRadius="12dp"
-    app:cardElevation="4dp">
+    app:cardElevation="1dp"
+    app:strokeColor="@color/pos_border"
+    app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="12dp">
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="8dp">
 
         <TextView
             android:id="@+id/txtCartItemIcon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="12dp"
-            android:background="#D4AF37"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:gravity="center"
             android:text="P"
-            android:textColor="#121212"
-            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:textSize="11sp"
             android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:layout_gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/txtCartItemName"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLines="1"
                 android:text="Item"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
+                android:textColor="@color/pos_text_primary"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtCartItemDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="10 ml"
-                android:textColor="#4A90D9"
-                android:textSize="12sp" />
+                android:textColor="@color/pos_text_tertiary"
+                android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/txtCartItemSubtotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="Rp 100.000"
-                android:textColor="#D4AF37"
-                android:textSize="14sp"
+                android:textColor="@color/pos_gold"
+                android:textSize="11sp"
                 android:textStyle="bold" />
-
         </LinearLayout>
 
         <ImageButton
             android:id="@+id/btnRemoveItem"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="12dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Remove"
-            android:src="@android:drawable/ic_menu_delete"
-            app:tint="#FF5252" />
-
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            app:tint="@color/pos_red" />
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

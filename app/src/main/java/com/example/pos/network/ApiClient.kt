@@ -1,6 +1,7 @@
 package com.example.pos.network
 
 import com.google.gson.annotations.SerializedName
+import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -102,10 +103,22 @@ object ApiClient {
     // 10.0.2.2 = localhost from Android emulator
     // Change to your PC IP if using physical device
     private const val BASE_URL = "http://10.0.2.2:3000/"
+    private const val API_TOKEN = "dev-pos-token"
+
+    private val client = OkHttpClient.Builder()
+        .addInterceptor { chain ->
+            val requestBuilder = chain.request().newBuilder()
+            if (API_TOKEN.isNotBlank()) {
+                requestBuilder.addHeader("Authorization", "Bearer $API_TOKEN")
+            }
+            chain.proceed(requestBuilder.build())
+        }
+        .build()
 
     val instance: PosApiService by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(PosApiService::class.java)

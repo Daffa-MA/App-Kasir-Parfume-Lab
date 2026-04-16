@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +17,7 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.AppKasir">
         <activity
-            android:name="com.example.pos.POSActivity"
+            android:name="com.example.appkasir.ui.POSActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppKasir">
@@ -27,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.pos.PaymentActivity"
+            android:name="com.example.appkasir.ui.PaymentActivity"
             android:exported="false" />
     </application>
 
