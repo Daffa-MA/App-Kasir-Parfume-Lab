@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
+    android:layout_marginStart="6dp"
     android:layout_marginTop="6dp"
-    android:layout_marginEnd="8dp"
+    android:layout_marginEnd="6dp"
     android:layout_marginBottom="6dp"
     app:cardBackgroundColor="@color/pos_surface"
-    app:cardCornerRadius="14dp"
-    app:cardElevation="2dp"
-    app:strokeColor="@color/pos_border"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp"
+    app:strokeColor="@color/pos_border_light"
     app:strokeWidth="1dp">
 
     <LinearLayout
@@ -18,13 +18,13 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="12dp">
+        android:padding="14dp">
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            app:cardBackgroundColor="@color/pos_blue_bg"
-            app:cardCornerRadius="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:cardBackgroundColor="@color/pos_teal"
+            app:cardCornerRadius="12dp"
             app:cardElevation="0dp">
 
             <TextView
@@ -32,15 +32,15 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="B"
-                android:textColor="@color/pos_blue"
-                android:textSize="14sp"
+                android:textColor="@color/pos_surface_dark"
+                android:textSize="16sp"
                 android:textStyle="bold" />
         </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="14dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -54,39 +54,53 @@
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txtBottleCapacity"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="30 ml"
-                android:textColor="@color/pos_text_secondary"
-                android:textSize="11sp" />
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txtBottlePrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Rp 5.000"
-                android:textColor="@color/pos_blue"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/txtBottleCapacity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30 ml"
+                    android:textColor="@color/pos_text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/txtBottlePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp 5.000"
+                    android:textColor="@color/pos_teal"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/txtBottleStock"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/pos_blue_bg"
-            android:paddingStart="8dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="8dp"
-            android:paddingBottom="4dp"
-            android:text="100 pcs"
-            android:textColor="@color/pos_blue"
-            android:textSize="10sp"
-            android:textStyle="bold" />
+            android:layout_marginStart="8dp"
+            app:cardBackgroundColor="@color/pos_teal"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <TextView
+                android:id="@+id/txtBottleStock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
+                android:text="100 pcs"
+                android:textColor="@color/pos_surface_dark"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

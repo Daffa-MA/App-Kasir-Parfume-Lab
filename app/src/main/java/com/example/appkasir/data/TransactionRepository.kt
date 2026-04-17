@@ -56,6 +56,10 @@ class TransactionRepository(
         return transactionDao.getTransactionsByStatus(TransactionStatus.PENDING)
     }
 
+    suspend fun getAllTransactions(): List<TransactionWithItems> {
+        return transactionDao.getAllTransactions()
+    }
+
     suspend fun getPendingCount(): Int {
         return transactionDao.countByStatus(TransactionStatus.PENDING)
     }

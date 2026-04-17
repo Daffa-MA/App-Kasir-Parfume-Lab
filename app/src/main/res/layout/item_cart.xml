@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="4dp"
-    android:layout_marginTop="4dp"
-    android:layout_marginEnd="4dp"
-    android:layout_marginBottom="4dp"
+    android:layout_marginStart="6dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginEnd="6dp"
+    android:layout_marginBottom="6dp"
     app:cardBackgroundColor="@color/pos_surface"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="1dp"
-    app:strokeColor="@color/pos_border"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="2dp"
+    app:strokeColor="@color/pos_border_light"
     app:strokeWidth="1dp">
 
     <LinearLayout
@@ -18,25 +18,27 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingStart="8dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="6dp"
-        android:paddingBottom="8dp">
+        android:paddingStart="12dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="10dp">
 
         <TextView
             android:id="@+id/txtCartItemIcon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
             android:gravity="center"
             android:text="P"
             android:textColor="@color/white"
-            android:textSize="11sp"
-            android:textStyle="bold" />
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:background="@drawable/ic_launcher_foreground"
+            app:backgroundTint="@color/pos_blue_light" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="12dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -47,36 +49,48 @@
                 android:maxLines="1"
                 android:text="Item"
                 android:textColor="@color/pos_text_primary"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtCartItemDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="4dp"
                 android:text="10 ml"
                 android:textColor="@color/pos_text_tertiary"
-                android:textSize="10sp" />
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/txtCartItemSubtotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="4dp"
                 android:text="Rp 100.000"
-                android:textColor="@color/pos_gold"
-                android:textSize="11sp"
+                android:textColor="@color/pos_gold_light"
+                android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <ImageButton
+            android:id="@+id/btnEditItem"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Edit"
+            android:src="@android:drawable/ic_menu_edit"
+            android:scaleType="centerInside"
+            app:tint="@color/pos_blue_light" />
+
+        <ImageButton
             android:id="@+id/btnRemoveItem"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Remove"
             android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:scaleType="centerInside"
             app:tint="@color/pos_red" />
     </LinearLayout>
 

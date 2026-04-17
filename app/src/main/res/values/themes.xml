@@ -2,26 +2,77 @@
 <resources>
 
     <style name="Theme.AppKasir" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary Colors (Material Design 3) -->
         <item name="colorPrimary">@color/pos_gold</item>
-        <item name="colorPrimaryVariant">@color/pos_gold</item>
+        <item name="colorPrimaryVariant">@color/pos_gold_light</item>
         <item name="colorSecondary">@color/pos_blue</item>
+        <item name="colorSecondaryVariant">@color/pos_blue_dark</item>
+        <item name="colorTertiary">@color/pos_purple</item>
+        
+        <!-- Background & Surface -->
         <item name="android:colorBackground">@color/pos_background</item>
         <item name="colorSurface">@color/pos_surface_dark</item>
+        <item name="colorSurfaceVariant">@color/pos_surface</item>
+        
+        <!-- Text Colors -->
         <item name="colorOnPrimary">@color/black</item>
         <item name="colorOnBackground">@color/pos_text_primary</item>
         <item name="colorOnSurface">@color/pos_text_primary</item>
+        <item name="colorOnSecondary">@color/pos_surface_dark</item>
+        
+        <!-- Status Bar & System -->
         <item name="android:statusBarColor">@color/pos_surface_darker</item>
+        <item name="android:navigationBarColor">@color/pos_surface_darker</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+        
+        <!-- Material Components Theming -->
+        <item name="materialButtonStyle">@style/ModernButton</item>
+        <item name="materialCardViewStyle">@style/ModernCardView</item>
     </style>
 
+    <!-- Modern Button Style -->
+    <style name="ModernButton" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="elevation">2dp</item>
+    </style>
+
+    <!-- Modern Card View Style -->
+    <style name="ModernCardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/pos_border</item>
+    </style>
+
+    <!-- ML Preset Button - Enhanced -->
     <style name="MlPresetButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">4dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_margin">3dp</item>
         <item name="android:layout_columnWeight">1</item>
-        <item name="android:textColor">@color/pos_gold</item>
+        <item name="android:textColor">@color/pos_gold_light</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
         <item name="backgroundTint">@color/pos_surface</item>
-        <item name="strokeColor">@color/pos_border</item>
-        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/pos_gold_light</item>
+        <item name="strokeWidth">1.5dp</item>
         <item name="cornerRadius">10dp</item>
+        <item name="elevation">1dp</item>
     </style>
+
+    <!-- Section Header Text -->
+    <style name="SectionHeaderText">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/pos_text_secondary</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- Subtitle Text -->
+    <style name="SubtitleText">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/pos_text_tertiary</item>
+    </style>
+
 </resources>

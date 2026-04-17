@@ -3,11 +3,11 @@ package com.example.appkasir.ui
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.text.InputType
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -18,6 +18,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appkasir.R
+import com.example.appkasir.data.CatalogRepository
 import com.example.appkasir.data.LocalTransactionItem
 import com.example.appkasir.data.TransactionRepository
 import com.example.appkasir.data.local.AppDatabase
@@ -47,6 +48,7 @@ class POSActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPosBinding
     private lateinit var repository: TransactionRepository
+    private lateinit var catalogRepository: CatalogRepository
 
     private val perfumeProducts = mutableListOf<PerfumeProduct>()
     private val bottleProducts = mutableListOf<BottleProduct>()
@@ -66,13 +68,15 @@ class POSActivity : AppCompatActivity() {
         showBottleMixDialog(bottle)
     }
 
-    private val perfumeCartAdapter = CartAdapter { item ->
-        removeCartItem(item)
-    }
+    private val perfumeCartAdapter = CartAdapter(
+        { item -> removeCartItem(item) },
+        { item -> editCartItem(item) }
+    )
 
-    private val bottleCartAdapter = CartAdapter { item ->
-        removeCartItem(item)
-    }
+    private val bottleCartAdapter = CartAdapter(
+        { item -> removeCartItem(item) },
+        { item -> editCartItem(item) }
+    )
 
     private val paymentLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -82,6 +86,8 @@ class POSActivity : AppCompatActivity() {
         val data = result.data
         val cashReceived = data?.getLongExtra(PaymentActivity.EXTRA_CASH_RECEIVED, 0L) ?: 0L
         val changeAmount = data?.getLongExtra(PaymentActivity.EXTRA_CHANGE_AMOUNT, 0L) ?: 0L
+        val perfumeSnapshot = perfumeProducts.map { it.copy() }
+        val bottleSnapshot = bottleProducts.map { it.copy() }
 
         lifecycleScope.launch {
             val itemsToPersist = pendingCheckoutItems.map {
@@ -101,6 +107,7 @@ class POSActivity : AppCompatActivity() {
                     changeAmount = changeAmount,
                     items = itemsToPersist
                 )
+                catalogRepository.saveCurrentStock(perfumeSnapshot, bottleSnapshot)
             }
 
             cartItems.clear()
@@ -127,17 +134,18 @@ class POSActivity : AppCompatActivity() {
         binding = ActivityPosBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val dao = AppDatabase.getInstance(this).transactionDao()
+        val database = AppDatabase.getInstance(this)
+        val dao = database.transactionDao()
         repository = TransactionRepository(dao)
+        catalogRepository = CatalogRepository(database.catalogDao())
 
-        loadSampleProducts()
         setupTabs()
         setupSearch()
         setupRecyclerViews()
         setupCheckout()
         setupSyncActions()
+        loadCatalogProducts()
 
-        refreshAll()
         SyncWorker.startNow(this)
     }
 
@@ -151,37 +159,38 @@ class POSActivity : AppCompatActivity() {
         super.onStop()
     }
 
-    private fun loadSampleProducts() {
-        perfumeProducts.clear()
-        bottleProducts.clear()
+    private fun loadCatalogProducts() {
+        lifecycleScope.launch {
+            withContext(Dispatchers.IO) {
+                catalogRepository.ensureSeeded()
+            }
 
-        perfumeProducts += listOf(
-            PerfumeProduct("P001", "Ocean Breeze", 15000, 500.0),
-            PerfumeProduct("P002", "Rose Delight", 20000, 350.0),
-            PerfumeProduct("P003", "Lavender Mist", 18000, 600.0),
-            PerfumeProduct("P004", "Citrus Fresh", 12000, 800.0),
-            PerfumeProduct("P005", "Vanilla Dream", 25000, 200.0),
-            PerfumeProduct("P006", "Oud Royal", 50000, 150.0)
-        )
+            val perfumes = withContext(Dispatchers.IO) {
+                catalogRepository.getPerfumes()
+            }
+            val bottles = withContext(Dispatchers.IO) {
+                catalogRepository.getBottles()
+            }
 
-        bottleProducts += listOf(
-            BottleProduct("B001", "Vial 3ml", 3, 1500, 200),
-            BottleProduct("B002", "Vial 5ml", 5, 2000, 200),
-            BottleProduct("B003", "Vial 10ml", 10, 3000, 150),
-            BottleProduct("B004", "Bottle Spray 15ml", 15, 5000, 100),
-            BottleProduct("B005", "Bottle Spray 30ml", 30, 7500, 80)
-        )
+            perfumeProducts.clear()
+            perfumeProducts.addAll(perfumes)
+            bottleProducts.clear()
+            bottleProducts.addAll(bottles)
+            refreshAll()
+        }
     }
 
     private fun setupTabs() {
-        binding.btnTabPerfume.text = "CATALOG MIX BOTTLE"
-        binding.btnTabPerfume.isEnabled = false
-        binding.btnTabPerfume.backgroundTintList = android.content.res.ColorStateList.valueOf(
-            Color.parseColor("#4A90D9")
+        binding.btnTabPerfume.visibility = View.GONE
+        binding.btnTabBottle.visibility = View.VISIBLE
+        binding.btnTabBottle.text = "Riwayat Transaksi"
+        binding.btnTabBottle.backgroundTintList = android.content.res.ColorStateList.valueOf(
+            Color.parseColor("#2A2A2A")
         )
-        binding.btnTabPerfume.setTextColor(Color.parseColor("#121212"))
-
-        binding.btnTabBottle.visibility = View.GONE
+        binding.btnTabBottle.setTextColor(Color.parseColor("#4A90D9"))
+        binding.btnTabBottle.setOnClickListener {
+            startActivity(Intent(this, TransactionHistoryActivity::class.java))
+        }
     }
 
     private fun setupSearch() {
@@ -276,7 +285,7 @@ class POSActivity : AppCompatActivity() {
         // POS Logic
         val totals = CalculateUtils.calculateTotals(cartItems)
         binding.txtPerfumeSubtotal.text = formatCurrency(totals.perfumeSubtotal)
-        binding.txtAlcoholMl.text = "${totals.totalAlcoholMl.toInt()} ml"
+        binding.txtAlcoholMl.text = "${formatMlValue(totals.totalAlcoholMl)} ml"
         binding.txtAlcoholSubtotal.text = formatCurrency(totals.alcoholSubtotal)
         binding.txtBottleSubtotal.text = formatCurrency(totals.bottleSubtotal)
         binding.txtTotal.text = formatCurrency(totals.roundedTotal)
@@ -289,6 +298,97 @@ class POSActivity : AppCompatActivity() {
         }
         cartItems.remove(item)
         refreshAll()
+    }
+
+    private fun editCartItem(item: CartItem) {
+        val input = EditText(this).apply {
+            setPadding(48, 36, 48, 24)
+            setTextColor(Color.parseColor("#FFFFFF"))
+            setHintTextColor(Color.parseColor("#8A8A8A"))
+            setBackgroundColor(Color.parseColor("#1E1E1E"))
+            setText(
+                when (item) {
+                    is CartItem.Perfume -> formatMlValue(item.ml)
+                    is CartItem.Bottle -> item.pcs.toString()
+                }
+            )
+            inputType = when (item) {
+                is CartItem.Perfume -> InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+                is CartItem.Bottle -> InputType.TYPE_CLASS_NUMBER
+            }
+            hint = when (item) {
+                is CartItem.Perfume -> "ml"
+                is CartItem.Bottle -> "pcs"
+            }
+            setSelection(text.length)
+        }
+
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Edit ${item.name}")
+            .setView(input)
+            .setNegativeButton("Batal", null)
+            .setPositiveButton("Simpan", null)
+            .create()
+
+        dialog.setOnShowListener {
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                when (item) {
+                    is CartItem.Perfume -> {
+                        val newMl = input.text.toString().trim().replace(',', '.').toDoubleOrNull() ?: 0.0
+                        if (newMl <= 0.0) {
+                            showInfo("Jumlah ml harus lebih dari 0")
+                            return@setOnClickListener
+                        }
+
+                        val availableMl = item.product.stockMl + item.ml
+                        if (newMl > availableMl) {
+                            showInfo("Stok tidak cukup")
+                            return@setOnClickListener
+                        }
+
+                        item.product.stockMl = availableMl - newMl
+                        val updatedItem = item.copy(
+                            ml = newMl,
+                            subtotal = (newMl * item.product.pricePerMl).toLong()
+                        )
+                        replaceCartItem(item, updatedItem)
+                    }
+
+                    is CartItem.Bottle -> {
+                        val newQty = input.text.toString().trim().toIntOrNull() ?: 0
+                        if (newQty <= 0) {
+                            showInfo("Jumlah pcs harus lebih dari 0")
+                            return@setOnClickListener
+                        }
+
+                        val availablePcs = item.bottle.stockPcs + item.pcs
+                        if (newQty > availablePcs) {
+                            showInfo("Stok bottle tidak cukup")
+                            return@setOnClickListener
+                        }
+
+                        item.bottle.stockPcs = availablePcs - newQty
+                        val updatedItem = item.copy(
+                            pcs = newQty,
+                            subtotal = item.bottle.price * newQty.toLong()
+                        )
+                        replaceCartItem(item, updatedItem)
+                    }
+                }
+
+                dialog.dismiss()
+            }
+        }
+
+        dialog.show()
+    }
+
+    private fun replaceCartItem(oldItem: CartItem, newItem: CartItem) {
+        val index = cartItems.indexOfFirst { it === oldItem }
+        if (index >= 0) {
+            cartItems[index] = newItem
+            refreshAll()
+        }
     }
 
     private fun showBottleMixDialog(bottle: BottleProduct) {
@@ -309,11 +409,26 @@ class POSActivity : AppCompatActivity() {
 
         val mixAdapter = PerfumeMixAdapter { selectedItems ->
             val summary = calculateMixSummary(selectedItems, bottle)
-            txtMixTotalMl.text = "${summary.totalBibitMl.toInt()} ml"
+            val isExceeded = summary.totalBibitMl > bottle.capacityMl
+            val totalBibitMlText = formatMlValue(summary.totalBibitMl)
+            val totalAlcoholMlText = formatMlValue(summary.totalAlcoholMl)
+            
+            // Display ml with warning if exceeded
+            val mlText = "$totalBibitMlText ml"
+            txtMixTotalMl.text = if (isExceeded) {
+                "$mlText (Melebihi kapasitas ${bottle.capacityMl}ml!)"
+            } else {
+                mlText
+            }
+            
+            // Change text color to red if exceeded
+            txtMixTotalMl.setTextColor(
+                if (isExceeded) Color.parseColor("#FF5252") else Color.parseColor("#FFFFFF")
+            )
 
-            if (summary.totalBibitMl > 100.0) {
+            if (summary.totalAlcoholMl > 0.0) {
                 layoutAlcoholPrice.visibility = View.VISIBLE
-                txtMixAlcoholInfo.text = "${summary.totalBibitMl.toInt()} ml"
+                txtMixAlcoholInfo.text = "$totalAlcoholMlText ml"
                 txtMixAlcoholPrice.text = formatCurrency(summary.alcoholSubtotal)
             } else {
                 layoutAlcoholPrice.visibility = View.GONE
@@ -321,8 +436,12 @@ class POSActivity : AppCompatActivity() {
                 txtMixAlcoholPrice.text = formatCurrency(0)
             }
 
-            txtMixSummary.text = "${formatCurrency(summary.perfumeSubtotal)} + ${formatCurrency(summary.bottleSubtotal)}"
+            txtMixSummary.text = "${formatCurrency(summary.perfumeSubtotal)} + ${formatCurrency(summary.alcoholSubtotal)}"
             txtMixTotalPrice.text = formatCurrency(summary.total)
+            
+            // Disable button if exceeds capacity
+            btnAddMixToCart.isEnabled = !isExceeded
+            btnAddMixToCart.alpha = if (isExceeded) 0.5f else 1.0f
         }
 
         recyclerMixPerfume.layoutManager = LinearLayoutManager(this)
@@ -346,6 +465,12 @@ class POSActivity : AppCompatActivity() {
             val selectedMix = mixAdapter.selectedItems()
             if (selectedMix.isEmpty()) {
                 showInfo("Pilih minimal 1 bibit parfum")
+                return@setOnClickListener
+            }
+
+            val totalBibitMl = selectedMix.sumOf { it.selectedMl }
+            if (totalBibitMl > bottle.capacityMl) {
+                showInfo("Total bibit (${formatMlValue(totalBibitMl)}ml) melebihi kapasitas botol (${bottle.capacityMl}ml)")
                 return@setOnClickListener
             }
 
@@ -382,9 +507,10 @@ class POSActivity : AppCompatActivity() {
     ): PosTotals {
         val perfumeSubtotal = selectedMix.sumOf { (it.selectedMl * it.product.pricePerMl).toLong() }
         val totalBibitMl = selectedMix.sumOf { it.selectedMl }
+        val totalAlcoholMl = (bottle.capacityMl - totalBibitMl).coerceAtLeast(0.0)
         val alcoholSubtotal = CalculateUtils.calculateAlcoholSubtotal(
             totalBibitMl = totalBibitMl,
-            totalAlcoholMl = totalBibitMl,
+            totalAlcoholMl = totalAlcoholMl,
             alcoholPricePerMl = 2000.0
         )
 
@@ -398,8 +524,16 @@ class POSActivity : AppCompatActivity() {
             total = total,
             roundedTotal = CalculateUtils.roundToNearestHundred(total),
             totalBibitMl = totalBibitMl,
-            totalAlcoholMl = totalBibitMl
+            totalAlcoholMl = totalAlcoholMl
         )
+    }
+
+    private fun formatMlValue(value: Double): String {
+        return if (value % 1.0 == 0.0) {
+            value.toInt().toString()
+        } else {
+            value.toString().trimEnd('0').trimEnd('.')
+        }
     }
 
     private fun startSyncStatusPolling() {

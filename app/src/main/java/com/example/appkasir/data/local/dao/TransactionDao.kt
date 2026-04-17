@@ -21,6 +21,10 @@ interface TransactionDao {
     @Query("SELECT * FROM transactions WHERE status = :status ORDER BY created_at ASC")
     suspend fun getTransactionsByStatus(status: String): List<TransactionWithItems>
 
+    @Transaction
+    @Query("SELECT * FROM transactions ORDER BY created_at DESC")
+    suspend fun getAllTransactions(): List<TransactionWithItems>
+
     @Query("SELECT COUNT(*) FROM transactions WHERE status = :status")
     suspend fun countByStatus(status: String): Int
 

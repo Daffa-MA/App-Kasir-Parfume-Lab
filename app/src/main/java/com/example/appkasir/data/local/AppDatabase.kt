@@ -6,17 +6,26 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.appkasir.data.local.dao.CatalogDao
 import com.example.appkasir.data.local.dao.TransactionDao
+import com.example.appkasir.data.local.entity.BottleProductEntity
+import com.example.appkasir.data.local.entity.PerfumeProductEntity
 import com.example.appkasir.data.local.entity.TransactionEntity
 import com.example.appkasir.data.local.entity.TransactionItemEntity
 
 @Database(
-    entities = [TransactionEntity::class, TransactionItemEntity::class],
-    version = 2,
+    entities = [
+        TransactionEntity::class,
+        TransactionItemEntity::class,
+        PerfumeProductEntity::class,
+        BottleProductEntity::class
+    ],
+    version = 3,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun transactionDao(): TransactionDao
+    abstract fun catalogDao(): CatalogDao
 
     companion object {
         @Volatile
@@ -29,7 +38,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "perfume_lab_pos.db"
                 )
-                    .addMigrations(MIGRATION_1_2)
+                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
                     .build()
                     .also { INSTANCE = it }
             }
@@ -41,6 +50,32 @@ abstract class AppDatabase : RoomDatabase() {
                     "ALTER TABLE transactions ADD COLUMN rounded_total INTEGER NOT NULL DEFAULT 0"
                 )
                 db.execSQL("UPDATE transactions SET rounded_total = total WHERE rounded_total = 0")
+            }
+        }
+
+        private val MIGRATION_2_3 = object : Migration(2, 3) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS perfume_products (
+                        id TEXT NOT NULL PRIMARY KEY,
+                        name TEXT NOT NULL,
+                        pricePerMl INTEGER NOT NULL,
+                        stockMl REAL NOT NULL
+                    )
+                    """.trimIndent()
+                )
+                db.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS bottle_products (
+                        id TEXT NOT NULL PRIMARY KEY,
+                        name TEXT NOT NULL,
+                        capacityMl INTEGER NOT NULL,
+                        price INTEGER NOT NULL,
+                        stockPcs INTEGER NOT NULL
+                    )
+                    """.trimIndent()
+                )
             }
         }
     }

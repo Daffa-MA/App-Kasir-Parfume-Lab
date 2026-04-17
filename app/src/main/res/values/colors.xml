@@ -11,28 +11,39 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Dark Theme Colors (POS) -->
-    <color name="pos_background">#0F0F0F</color>
-    <color name="pos_surface">#1F1F1F</color>
-    <color name="pos_surface_dark">#1A1A1A</color>
-    <color name="pos_surface_darker">#151515</color>
+    <!-- Dark Theme Colors (POS) - Material Design 3 -->
+    <color name="pos_background">#0A0E27</color>
+    <color name="pos_surface">#1A1F3F</color>
+    <color name="pos_surface_dark">#151A35</color>
+    <color name="pos_surface_darker">#0F131E</color>
 
-    <!-- Accent Colors -->
-    <color name="pos_gold">#D4AF37</color>
-    <color name="pos_gold_muted">#2ED4AF37</color>
-    <color name="pos_blue">#4A90D9</color>
-    <color name="pos_blue_bg">#244A90D9</color>
-    <color name="pos_green">#4CAF50</color>
-    <color name="pos_green_bg">#1D4CAF50</color>
-    <color name="pos_red">#FF5252</color>
+    <!-- Accent Colors - Modern Vibrant Palette -->
+    <color name="pos_gold">#FFD700</color>
+    <color name="pos_gold_muted">#2EFFD700</color>
+    <color name="pos_gold_light">#FFE047</color>
+    <color name="pos_blue">#5B9EFF</color>
+    <color name="pos_blue_dark">#3E7FD5</color>
+    <color name="pos_blue_light">#7CB3FF</color>
+    <color name="pos_green">#66BB6A</color>
+    <color name="pos_green_bg">#1D66BB6A</color>
+    <color name="pos_red">#FF6B6B</color>
+    <color name="pos_purple">#9C5DFF</color>
+    <color name="pos_teal">#4DD9D9</color>
 
-    <!-- Text Colors (Dark Theme) -->
+    <!-- Text Colors (Dark Theme) - Enhanced Contrast -->
     <color name="pos_text_primary">#FFFFFF</color>
-    <color name="pos_text_secondary">#AAAAAA</color>
-    <color name="pos_text_tertiary">#888888</color>
-    <color name="pos_text_hint">#666666</color>
+    <color name="pos_text_secondary">#B3B3B3</color>
+    <color name="pos_text_tertiary">#7F8FA3</color>
+    <color name="pos_text_hint">#5A6B7F</color>
 
-    <!-- Dividers and Borders -->
-    <color name="pos_divider">#333333</color>
-    <color name="pos_border">#404040</color>
+    <!-- Dividers and Borders - Modern -->
+    <color name="pos_divider">#2A3A52</color>
+    <color name="pos_border">#2D3E54</color>
+    <color name="pos_border_light">#3A4D66</color>
+
+    <!-- Status Colors -->
+    <color name="pos_success">#66BB6A</color>
+    <color name="pos_warning">#FFB74D</color>
+    <color name="pos_error">#FF6B6B</color>
+    <color name="pos_info">#5B9EFF</color>
 </resources>

@@ -27,7 +27,8 @@ object CalculateUtils {
         val perfumeSubtotal = perfumeItems.sumOf { it.subtotal }
         val bottleSubtotal = bottleItems.sumOf { it.subtotal }
         val totalBibitMl = perfumeItems.sumOf { it.ml }
-        val totalAlcoholMl = totalBibitMl
+        val totalBottleCapacityMl = bottleItems.sumOf { it.bottle.capacityMl.toDouble() }
+        val totalAlcoholMl = (totalBottleCapacityMl - totalBibitMl).coerceAtLeast(0.0)
 
         val alcoholSubtotal = calculateAlcoholSubtotal(
             totalBibitMl = totalBibitMl,
@@ -54,7 +55,7 @@ object CalculateUtils {
         totalAlcoholMl: Double,
         alcoholPricePerMl: Double
     ): Long {
-        return if (totalBibitMl < FREE_ALCOHOL_THRESHOLD_ML) {
+        return if (totalBibitMl < FREE_ALCOHOL_THRESHOLD_ML || totalAlcoholMl <= 0.0) {
             0L
         } else {
             (alcoholPricePerMl * totalAlcoholMl).toLong()

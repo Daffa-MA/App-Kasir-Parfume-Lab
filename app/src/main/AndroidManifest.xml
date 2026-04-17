@@ -30,6 +30,9 @@
         <activity
             android:name="com.example.appkasir.ui.PaymentActivity"
             android:exported="false" />
+        <activity
+            android:name="com.example.appkasir.ui.TransactionHistoryActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

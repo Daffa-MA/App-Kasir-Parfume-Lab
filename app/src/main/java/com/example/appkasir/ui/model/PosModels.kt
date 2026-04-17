@@ -33,7 +33,7 @@ sealed class CartItem {
         override val name: String = product.name
         override val type: String = TYPE_PERFUME
         override val qty: Double = ml
-        override val detail: String = "${ml.toInt()} ml"
+        override val detail: String = "${formatQuantity(ml)} ml"
     }
 
     data class Bottle(
@@ -56,4 +56,12 @@ sealed class CartItem {
 fun formatCurrency(amount: Long): String {
     val formatter = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
     return formatter.format(amount).replace("Rp", "Rp ")
+}
+
+fun formatQuantity(value: Double): String {
+    return if (value % 1.0 == 0.0) {
+        value.toInt().toString()
+    } else {
+        value.toString().trimEnd('0').trimEnd('.')
+    }
 }

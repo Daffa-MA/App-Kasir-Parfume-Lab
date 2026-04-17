@@ -12,7 +12,8 @@ import com.example.appkasir.ui.model.CartItem
 import com.example.appkasir.ui.model.formatCurrency
 
 class CartAdapter(
-    private val onRemove: (CartItem) -> Unit
+    private val onRemove: (CartItem) -> Unit,
+    private val onEdit: (CartItem) -> Unit
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     private val items = mutableListOf<CartItem>()
@@ -39,6 +40,7 @@ class CartAdapter(
         private val txtCartItemName: TextView = itemView.findViewById(R.id.txtCartItemName)
         private val txtCartItemDetail: TextView = itemView.findViewById(R.id.txtCartItemDetail)
         private val txtCartItemSubtotal: TextView = itemView.findViewById(R.id.txtCartItemSubtotal)
+        private val btnEditItem: ImageButton = itemView.findViewById(R.id.btnEditItem)
         private val btnRemoveItem: ImageButton = itemView.findViewById(R.id.btnRemoveItem)
 
         fun bind(item: CartItem) {
@@ -56,6 +58,7 @@ class CartAdapter(
                 txtCartItemSubtotal.setTextColor(Color.parseColor("#4A90D9"))
             }
 
+            btnEditItem.setOnClickListener { onEdit(item) }
             btnRemoveItem.setOnClickListener { onRemove(item) }
         }
     }
