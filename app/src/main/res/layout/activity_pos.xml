@@ -44,42 +44,128 @@
                 android:textColor="@color/pos_text_tertiary"
                 android:textSize="13sp" />
 
+            <!-- User Info -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_user_info"
+                android:padding="12dp">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnTabPerfume"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="👤"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="8dp" />
+
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:backgroundTint="@color/pos_gold_light"
-                    android:text="CATALOG MIX"
-                    android:textAllCaps="false"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="16dp"
-                    app:elevation="3dp" />
+                    android:orientation="vertical">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnTabBottle"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
+                    <TextView
+                        android:id="@+id/txtUsername"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Username"
+                        android:textColor="@color/pos_text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtUserRole"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Role"
+                        android:textColor="@color/pos_blue_light"
+                        android:textSize="11sp"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/pos_border"
                     android:layout_marginStart="8dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/pos_surface"
-                    android:text="HIDDEN"
-                    android:textAllCaps="false"
-                    android:textColor="@color/pos_blue_light"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="16dp"
-                    app:strokeColor="@color/pos_blue_light"
-                    app:strokeWidth="1.5dp" />
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ℹ"
+                    android:textSize="16sp"
+                    android:textColor="@color/pos_text_secondary" />
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTabPerfume"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/pos_gold_light"
+                android:text="CATALOG MIX"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:cornerRadius="16dp"
+                app:elevation="3dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTabBottle"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/pos_surface"
+                android:text="HIDDEN"
+                android:textAllCaps="false"
+                android:textColor="@color/pos_blue_light"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:cornerRadius="16dp"
+                app:strokeColor="@color/pos_blue_light"
+                app:strokeWidth="1.5dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAdmin"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="4dp"
+                android:minWidth="50dp"
+                android:minHeight="50dp"
+                android:padding="0dp"
+                android:text="⚙"
+                android:textSize="20sp"
+                android:backgroundTint="@color/pos_purple"
+                app:cornerRadius="16dp"
+                app:elevation="3dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:minWidth="50dp"
+                android:minHeight="50dp"
+                android:padding="0dp"
+                android:text="🚪"
+                android:textSize="18sp"
+                android:backgroundTint="@color/pos_red"
+                app:cornerRadius="16dp"
+                app:elevation="3dp" />
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

@@ -32,4 +32,10 @@ interface CatalogDao {
 
     @Query("UPDATE bottle_products SET stockPcs = :stockPcs WHERE id = :productId")
     suspend fun updateBottleStock(productId: String, stockPcs: Int)
+
+    @Query("DELETE FROM perfume_products WHERE id = :perfumeId")
+    suspend fun deletePerfumeById(perfumeId: String)
+
+    @Query("DELETE FROM bottle_products WHERE id = :bottleId")
+    suspend fun deleteBottleById(bottleId: String)
 }

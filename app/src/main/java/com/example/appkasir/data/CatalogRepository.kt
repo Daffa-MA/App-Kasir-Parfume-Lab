@@ -31,6 +31,31 @@ class CatalogRepository(
         catalogDao.upsertBottles(bottles.map { it.toEntity() })
     }
 
+    // Admin functions for product management
+    suspend fun addPerfume(perfume: PerfumeProduct) {
+        catalogDao.upsertPerfumes(listOf(perfume.toEntity()))
+    }
+
+    suspend fun updatePerfume(perfume: PerfumeProduct) {
+        catalogDao.upsertPerfumes(listOf(perfume.toEntity()))
+    }
+
+    suspend fun deletePerfume(perfumeId: String) {
+        catalogDao.deletePerfumeById(perfumeId)
+    }
+
+    suspend fun addBottle(bottle: BottleProduct) {
+        catalogDao.upsertBottles(listOf(bottle.toEntity()))
+    }
+
+    suspend fun updateBottle(bottle: BottleProduct) {
+        catalogDao.upsertBottles(listOf(bottle.toEntity()))
+    }
+
+    suspend fun deleteBottle(bottleId: String) {
+        catalogDao.deleteBottleById(bottleId)
+    }
+
     private fun PerfumeProductEntity.toDomain(): PerfumeProduct {
         return PerfumeProduct(id = id, name = name, pricePerMl = pricePerMl, stockMl = stockMl)
     }

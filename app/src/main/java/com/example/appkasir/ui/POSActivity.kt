@@ -140,6 +140,7 @@ class POSActivity : AppCompatActivity() {
         catalogRepository = CatalogRepository(database.catalogDao())
 
         setupTabs()
+        setupUserInfo()
         setupSearch()
         setupRecyclerViews()
         setupCheckout()
@@ -190,6 +191,57 @@ class POSActivity : AppCompatActivity() {
         binding.btnTabBottle.setTextColor(Color.parseColor("#4A90D9"))
         binding.btnTabBottle.setOnClickListener {
             startActivity(Intent(this, TransactionHistoryActivity::class.java))
+        }
+
+        // Get user role
+        val sharedPref = getSharedPreferences("AppKasir", MODE_PRIVATE)
+        val userRole = sharedPref.getString("userRole", "operator") ?: "operator"
+        val currentUser = sharedPref.getString("currentUser", "User") ?: "User"
+
+        // Show admin button only for admin role
+        if (userRole == "admin") {
+            binding.btnAdmin.visibility = View.VISIBLE
+            binding.btnAdmin.setOnClickListener {
+                startActivity(Intent(this, AdminDashboardActivity::class.java))
+            }
+        } else {
+            binding.btnAdmin.visibility = View.GONE
+        }
+
+        binding.btnLogout.setOnClickListener {
+            showLogoutConfirm()
+        }
+    }
+
+    private fun setupUserInfo() {
+        val sharedPref = getSharedPreferences("AppKasir", MODE_PRIVATE)
+        val currentUser = sharedPref.getString("currentUser", "User") ?: "User"
+        val userRole = sharedPref.getString("userRole", "operator") ?: "operator"
+
+        val txtUsername = findViewById<TextView>(R.id.txtUsername)
+        val txtUserRole = findViewById<TextView>(R.id.txtUserRole)
+
+        txtUsername.text = "Logged in as: $currentUser"
+        txtUserRole.text = "Role: ${userRole.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }}"
+
+        // Apply role-based restrictions
+        applyRoleBasedRestrictions(userRole)
+    }
+
+    private fun applyRoleBasedRestrictions(userRole: String) {
+        when (userRole) {
+            "admin" -> {
+                // Admin has full access - no restrictions
+            }
+            "operator" -> {
+                // Operator can do transactions but cannot access admin features
+                binding.btnAdmin.visibility = View.GONE
+            }
+            "demo" -> {
+                // Demo user has limited features
+                binding.btnAdmin.visibility = View.GONE
+                // Additional restrictions can be added here
+            }
         }
     }
 
@@ -499,6 +551,32 @@ class POSActivity : AppCompatActivity() {
             .setView(dialogView)
             .create()
         activeDialog?.show()
+    }
+
+    private fun showLogoutConfirm() {
+        AlertDialog.Builder(this)
+            .setTitle("Logout")
+            .setMessage("Apakah Anda yakin ingin logout?")
+            .setPositiveButton("Ya, Logout") { _, _ ->
+                performLogout()
+            }
+            .setNegativeButton("Batal", null)
+            .show()
+    }
+
+    private fun performLogout() {
+        // Clear login state
+        val sharedPref = getSharedPreferences("AppKasir", MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            putBoolean("isLoggedIn", false)
+            putString("currentUser", "")
+            putString("userRole", "")
+            apply()
+        }
+
+        Toast.makeText(this, "Logout successful", Toast.LENGTH_SHORT).show()
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 
     private fun calculateMixSummary(
