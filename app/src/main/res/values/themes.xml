@@ -10,6 +10,7 @@
         <item name="colorTertiary">@color/pos_purple</item>
         
         <!-- Background & Surface -->
+        <item name="android:windowBackground">@drawable/bg_app_modern</item>
         <item name="android:colorBackground">@color/pos_background</item>
         <item name="colorSurface">@color/pos_surface_dark</item>
         <item name="colorSurfaceVariant">@color/pos_surface</item>
@@ -22,10 +23,13 @@
         
         <!-- Status Bar & System -->
         <item name="android:statusBarColor">@color/pos_surface_darker</item>
+        <item name="android:navigationBarColor">@color/pos_surface_darker</item>
+        <item name="android:forceDarkAllowed">false</item>
         
         <!-- Material Components Theming -->
         <item name="materialButtonStyle">@style/ModernButton</item>
         <item name="materialCardViewStyle">@style/ModernCardView</item>
+        <item name="materialAlertDialogTheme">@style/AlertDialogStyle</item>
     </style>
 
     <!-- Modern Button Style -->
@@ -46,17 +50,17 @@
     <!-- ML Preset Button - Enhanced -->
     <style name="MlPresetButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_height">42dp</item>
         <item name="android:layout_margin">3dp</item>
         <item name="android:layout_columnWeight">1</item>
-        <item name="android:textColor">@color/pos_gold_light</item>
-        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/pos_text_primary</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="backgroundTint">@color/pos_surface</item>
-        <item name="strokeColor">@color/pos_gold_light</item>
-        <item name="strokeWidth">1.5dp</item>
-        <item name="cornerRadius">10dp</item>
-        <item name="elevation">1dp</item>
+        <item name="backgroundTint">@color/pos_surface_dark</item>
+        <item name="strokeColor">@color/pos_border_light</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cornerRadius">999dp</item>
+        <item name="elevation">0dp</item>
     </style>
 
     <!-- Section Header Text -->

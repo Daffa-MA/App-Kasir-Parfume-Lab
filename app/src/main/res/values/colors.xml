@@ -52,6 +52,11 @@
     <color name="pos_overlay_light">#0DFFFFFF</color>
     <color name="pos_gradient_start">#6A82FB</color>
     <color name="pos_gradient_end">#FC5C65</color>
+    <color name="pos_background_start">#0A0E27</color>
+    <color name="pos_background_mid">#111735</color>
+    <color name="pos_background_end">#171C3D</color>
+    <color name="pos_background_glow_gold">#1AFFD700</color>
+    <color name="pos_background_glow_blue">#165B9EFF</color>
 
     <!-- Additional UI Colors -->
     <color name="pos_card_hover">#20FFFFFF</color>

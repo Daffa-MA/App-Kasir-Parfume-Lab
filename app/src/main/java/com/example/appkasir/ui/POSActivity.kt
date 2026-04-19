@@ -9,12 +9,14 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appkasir.R
@@ -182,9 +184,18 @@ class POSActivity : AppCompatActivity() {
     }
 
     private fun setupTabs() {
-        binding.btnTabPerfume.visibility = View.GONE
+        binding.btnTabPerfume.visibility = View.VISIBLE
+        binding.btnTabPerfume.text = "Sinkron"
+        binding.btnTabPerfume.backgroundTintList = android.content.res.ColorStateList.valueOf(
+            Color.parseColor("#4A90D9")
+        )
+        binding.btnTabPerfume.setTextColor(Color.parseColor("#0E1328"))
+        binding.btnTabPerfume.setOnClickListener {
+            triggerSyncNow()
+        }
+
         binding.btnTabBottle.visibility = View.VISIBLE
-        binding.btnTabBottle.text = "Riwayat Transaksi"
+        binding.btnTabBottle.text = "Riwayat"
         binding.btnTabBottle.backgroundTintList = android.content.res.ColorStateList.valueOf(
             Color.parseColor("#2A2A2A")
         )
@@ -218,11 +229,11 @@ class POSActivity : AppCompatActivity() {
         val currentUser = sharedPref.getString("currentUser", "User") ?: "User"
         val userRole = sharedPref.getString("userRole", "operator") ?: "operator"
 
-        val txtUsername = findViewById<TextView>(R.id.txtUsername)
-        val txtUserRole = findViewById<TextView>(R.id.txtUserRole)
+        val txtUsername = findViewById<TextView?>(R.id.txtUsername)
+        val txtUserRole = findViewById<TextView?>(R.id.txtUserRole)
 
-        txtUsername.text = "Logged in as: $currentUser"
-        txtUserRole.text = "Role: ${userRole.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }}"
+        txtUsername?.text = currentUser
+        txtUserRole?.text = userRole.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
 
         // Apply role-based restrictions
         applyRoleBasedRestrictions(userRole)
@@ -262,13 +273,23 @@ class POSActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerViews() {
-        binding.recyclerProducts.layoutManager = LinearLayoutManager(this)
+        val screenWidthDp = resources.configuration.screenWidthDp
+        val spanCount = when {
+            screenWidthDp >= 720 -> 3
+            screenWidthDp >= 480 -> 2
+            else -> 1
+        }
+
+        binding.recyclerProducts.layoutManager = GridLayoutManager(this, spanCount)
+        binding.recyclerProducts.isNestedScrollingEnabled = false
         binding.recyclerProducts.adapter = productAdapter
 
         binding.recyclerPerfumeCart.layoutManager = LinearLayoutManager(this)
+        binding.recyclerPerfumeCart.isNestedScrollingEnabled = false
         binding.recyclerPerfumeCart.adapter = perfumeCartAdapter
 
         binding.recyclerBottleCart.layoutManager = LinearLayoutManager(this)
+        binding.recyclerBottleCart.isNestedScrollingEnabled = false
         binding.recyclerBottleCart.adapter = bottleCartAdapter
     }
 
@@ -293,19 +314,23 @@ class POSActivity : AppCompatActivity() {
 
     private fun setupSyncActions() {
         binding.btnRetrySync.setOnClickListener {
-            lifecycleScope.launch {
-                applySyncState(
-                    SyncUiState(
-                        indicator = SyncIndicator.LOADING,
-                        pendingCount = 0,
-                        message = "Syncing..."
-                    )
+            triggerSyncNow()
+        }
+    }
+
+    private fun triggerSyncNow() {
+        lifecycleScope.launch {
+            applySyncState(
+                SyncUiState(
+                    indicator = SyncIndicator.LOADING,
+                    pendingCount = 0,
+                    message = "Syncing..."
                 )
-                val result = withContext(Dispatchers.IO) {
-                    SyncEngine.syncPendingTransactions(this@POSActivity)
-                }
-                applySyncState(result)
+            )
+            val result = withContext(Dispatchers.IO) {
+                SyncEngine.syncPendingTransactions(this@POSActivity)
             }
+            applySyncState(result)
         }
     }
 
@@ -375,9 +400,45 @@ class POSActivity : AppCompatActivity() {
             setSelection(text.length)
         }
 
+        val dialogLayout = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(12, 12, 12, 12)
+        }
+
+        val header = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(16, 16, 16, 16)
+            setBackgroundResource(R.drawable.card_with_shadow)
+        }
+
+        val titleView = TextView(this).apply {
+            text = "Edit ${item.name}"
+            setTextColor(Color.parseColor("#FFE047"))
+            textSize = 18f
+            setTypeface(typeface, android.graphics.Typeface.BOLD)
+        }
+
+        val subtitleView = TextView(this).apply {
+            text = "Masukkan jumlah baru"
+            setTextColor(Color.parseColor("#7F8FA3"))
+            textSize = 12f
+        }
+
+        header.addView(titleView)
+        header.addView(subtitleView)
+
+        val inputContainer = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply {
+            topMargin = 12
+        }
+
+        dialogLayout.addView(header)
+        dialogLayout.addView(input, inputContainer)
+
         val dialog = AlertDialog.Builder(this)
-            .setTitle("Edit ${item.name}")
-            .setView(input)
+            .setView(dialogLayout)
             .setNegativeButton("Batal", null)
             .setPositiveButton("Simpan", null)
             .create()
@@ -454,9 +515,13 @@ class POSActivity : AppCompatActivity() {
         val txtMixAlcoholPrice = dialogView.findViewById<TextView>(R.id.txtMixAlcoholPrice)
         val txtMixSummary = dialogView.findViewById<TextView>(R.id.txtMixSummary)
         val txtMixTotalPrice = dialogView.findViewById<TextView>(R.id.txtMixTotalPrice)
+        val txtMixDialogTitle = dialogView.findViewById<TextView>(R.id.txtMixDialogTitle)
+        val txtMixDialogSubtitle = dialogView.findViewById<TextView>(R.id.txtMixDialogSubtitle)
         val layoutAlcoholPrice = dialogView.findViewById<View>(R.id.layoutAlcoholPrice)
         val btnAddMixToCart = dialogView.findViewById<View>(R.id.btnAddMixToCart)
 
+        txtMixDialogTitle.text = "Mix untuk ${bottle.name}"
+        txtMixDialogSubtitle.text = "Pilih bibit parfum untuk campuran"
         txtMixBottleInfo.text = "${bottle.name} | ${formatCurrency(bottle.price)}"
 
         val mixAdapter = PerfumeMixAdapter { selectedItems ->
@@ -547,21 +612,22 @@ class POSActivity : AppCompatActivity() {
         }
 
         activeDialog = AlertDialog.Builder(this)
-            .setTitle("Mix untuk ${bottle.name}")
             .setView(dialogView)
             .create()
+
         activeDialog?.show()
     }
 
     private fun showLogoutConfirm() {
-        AlertDialog.Builder(this)
-            .setTitle("Logout")
+        val logoutDialog = AlertDialog.Builder(this)
             .setMessage("Apakah Anda yakin ingin logout?")
             .setPositiveButton("Ya, Logout") { _, _ ->
                 performLogout()
             }
             .setNegativeButton("Batal", null)
-            .show()
+            .create()
+
+        logoutDialog.show()
     }
 
     private fun performLogout() {

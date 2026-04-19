@@ -4,10 +4,38 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@drawable/bg_app_modern"
     android:paddingStart="20dp"
     android:paddingTop="20dp"
     android:paddingEnd="20dp"
     android:paddingBottom="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:orientation="vertical"
+        android:background="@drawable/card_with_shadow"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/txtAddProductTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tambah Parfum"
+            android:textColor="@color/pos_gold"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtAddProductSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Isi data produk dengan lengkap"
+            android:textColor="@color/pos_text_tertiary"
+            android:textSize="12sp" />
+    </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -19,7 +47,7 @@
             android:id="@+id/edtProductId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Product ID (e.g., P001)"
+            android:hint="contoh: PERF001"
             android:inputType="text"
             android:textColor="@color/pos_text_primary"
             android:textColorHint="@color/pos_text_tertiary"
@@ -36,7 +64,7 @@
             android:id="@+id/edtProductName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Product Name"
+            android:hint="Nama produk"
             android:inputType="text"
             android:textColor="@color/pos_text_primary"
             android:textColorHint="@color/pos_text_tertiary"
@@ -53,7 +81,7 @@
             android:id="@+id/txtLabel1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Price Per Ml (Rp)"
+            android:text="Harga Per Ml (Rp)"
             android:textColor="@color/pos_text_secondary"
             android:textSize="12sp"
             android:layout_marginBottom="4dp" />
@@ -67,7 +95,7 @@
                 android:id="@+id/edtProductValue1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Value"
+                android:hint="ex: 1000"
                 android:inputType="numberDecimal"
                 android:textColor="@color/pos_text_primary"
                 android:textColorHint="@color/pos_text_tertiary"
@@ -99,7 +127,7 @@
                 android:id="@+id/edtProductValue2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Value"
+                android:hint="ex: 500"
                 android:inputType="numberDecimal"
                 android:textColor="@color/pos_text_primary"
                 android:textColorHint="@color/pos_text_tertiary"
@@ -108,9 +136,11 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layoutValue3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/txtLabel3"
@@ -119,8 +149,7 @@
             android:text="Stock (pcs)"
             android:textColor="@color/pos_text_secondary"
             android:textSize="12sp"
-            android:layout_marginBottom="4dp"
-            android:visibility="gone" />
+            android:layout_marginBottom="4dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -131,12 +160,11 @@
                 android:id="@+id/edtProductValue3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Value"
+                android:hint="ex: 100"
                 android:inputType="number"
                 android:textColor="@color/pos_text_primary"
                 android:textColorHint="@color/pos_text_tertiary"
-                android:background="@drawable/background_edittext"
-                android:visibility="gone" />
+                android:background="@drawable/background_edittext" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 </LinearLayout>
