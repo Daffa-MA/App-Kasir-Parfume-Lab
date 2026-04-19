@@ -187,9 +187,9 @@ class POSActivity : AppCompatActivity() {
         binding.btnTabPerfume.visibility = View.VISIBLE
         binding.btnTabPerfume.text = "Sinkron"
         binding.btnTabPerfume.backgroundTintList = android.content.res.ColorStateList.valueOf(
-            Color.parseColor("#4A90D9")
+            Color.parseColor("#FFE047")
         )
-        binding.btnTabPerfume.setTextColor(Color.parseColor("#0E1328"))
+        binding.btnTabPerfume.setTextColor(Color.parseColor("#000000"))
         binding.btnTabPerfume.setOnClickListener {
             triggerSyncNow()
         }
@@ -197,9 +197,9 @@ class POSActivity : AppCompatActivity() {
         binding.btnTabBottle.visibility = View.VISIBLE
         binding.btnTabBottle.text = "Riwayat"
         binding.btnTabBottle.backgroundTintList = android.content.res.ColorStateList.valueOf(
-            Color.parseColor("#2A2A2A")
+            Color.parseColor("#1A1F3F")
         )
-        binding.btnTabBottle.setTextColor(Color.parseColor("#4A90D9"))
+        binding.btnTabBottle.setTextColor(Color.parseColor("#B3B3B3"))
         binding.btnTabBottle.setOnClickListener {
             startActivity(Intent(this, TransactionHistoryActivity::class.java))
         }
@@ -207,11 +207,15 @@ class POSActivity : AppCompatActivity() {
         // Get user role
         val sharedPref = getSharedPreferences("AppKasir", MODE_PRIVATE)
         val userRole = sharedPref.getString("userRole", "operator") ?: "operator"
-        val currentUser = sharedPref.getString("currentUser", "User") ?: "User"
 
         // Show admin button only for admin role
         if (userRole == "admin") {
             binding.btnAdmin.visibility = View.VISIBLE
+            binding.btnAdmin.text = "Admin"
+            binding.btnAdmin.backgroundTintList = android.content.res.ColorStateList.valueOf(
+                Color.parseColor("#1A1F3F")
+            )
+            binding.btnAdmin.setTextColor(Color.parseColor("#B3B3B3"))
             binding.btnAdmin.setOnClickListener {
                 startActivity(Intent(this, AdminDashboardActivity::class.java))
             }

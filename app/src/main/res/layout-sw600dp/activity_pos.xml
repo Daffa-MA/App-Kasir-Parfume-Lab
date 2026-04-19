@@ -53,9 +53,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="Checkout cepat • sinkron otomatis • printer ready"
-                        android:textColor="@color/pos_text_tertiary"
-                        android:textSize="13sp" />
+                        android:text="The Olfactory Alchemist"
+                        android:textColor="@color/pos_text_secondary"
+                        android:textSize="13sp"
+                        android:textStyle="italic" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -91,18 +92,6 @@
                             android:textSize="11sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bg_chip_modern"
-                            android:paddingStart="12dp"
-                            android:paddingTop="8dp"
-                            android:paddingEnd="12dp"
-                            android:paddingBottom="8dp"
-                            android:text="ROLE BASED"
-                            android:textColor="@color/pos_text_primary"
-                            android:textSize="11sp"
-                            android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -118,33 +107,29 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="12dp">
+                        android:orientation="vertical"
+                        android:paddingStart="14dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="14dp"
+                        android:paddingBottom="10dp">
 
                         <TextView
                             android:id="@+id/txtUsername"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="10dp"
-                            android:text="Lab Station 01"
+                            android:text="admin"
                             android:textColor="@color/pos_text_primary"
-                            android:textSize="12sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txtUserRole"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/bg_chip_modern"
-                            android:paddingStart="10dp"
-                            android:paddingTop="6dp"
-                            android:paddingEnd="10dp"
-                            android:paddingBottom="6dp"
-                            android:text="Lead Alchemist"
+                            android:layout_marginTop="2dp"
+                            android:text="Admin"
                             android:textColor="@color/pos_blue_light"
-                            android:textSize="10sp"
-                            android:textStyle="bold" />
+                            android:textSize="12sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
@@ -162,7 +147,7 @@
         android:paddingBottom="16dp">
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="88dp"
+            android:layout_width="128dp"
             android:layout_height="match_parent"
             android:layout_marginEnd="12dp"
             app:cardBackgroundColor="@color/pos_surface_dark"
@@ -191,43 +176,43 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTabPerfume"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="52dp"
                     android:layout_marginBottom="8dp"
-                    android:backgroundTint="@color/pos_blue"
+                    android:backgroundTint="@color/pos_gold_light"
                     android:text="Sinkron"
                     android:textAllCaps="false"
-                    android:textColor="@color/pos_surface_dark"
-                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
                     android:textStyle="bold"
-                    app:cornerRadius="16dp"
+                    app:cornerRadius="18dp"
                     app:elevation="2dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTabBottle"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="52dp"
                     android:layout_marginBottom="8dp"
                     android:backgroundTint="@color/pos_surface"
                     android:text="Riwayat"
                     android:textAllCaps="false"
-                    android:textColor="@color/pos_blue_light"
-                    android:textSize="12sp"
+                    android:textColor="@color/pos_text_secondary"
+                    android:textSize="15sp"
                     android:textStyle="bold"
-                    app:cornerRadius="16dp"
-                    app:strokeColor="@color/pos_blue_light"
-                    app:strokeWidth="1.5dp" />
+                    app:cornerRadius="18dp"
+                    app:elevation="2dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnAdmin"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="52dp"
                     android:layout_marginBottom="8dp"
-                    android:backgroundTint="@color/pos_purple"
-                    android:text="⚙"
+                    android:backgroundTint="@color/pos_surface"
+                    android:text="Admin"
                     android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    app:cornerRadius="16dp"
+                    android:textColor="@color/pos_text_secondary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="18dp"
                     app:elevation="2dp" />
 
                 <View
@@ -238,13 +223,14 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnLogout"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="52dp"
                     android:backgroundTint="@color/pos_red"
-                    android:text="🚪"
+                    android:text="Logout"
                     android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    app:cornerRadius="16dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="18dp"
                     app:elevation="2dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -295,7 +281,7 @@
                             android:layout_height="44dp"
                             android:layout_weight="1"
                             android:background="@null"
-                            android:hint="Cari product or bottle SKU..."
+                            android:hint="Search Fragrance Form, User Bottle SKU..."
                             android:paddingStart="6dp"
                             android:paddingEnd="6dp"
                             android:textColor="@color/pos_text_primary"
@@ -386,13 +372,14 @@
                             android:layout_height="wrap_content"
                             android:paddingStart="16dp"
                             android:paddingEnd="16dp"
-                            android:paddingBottom="12dp"
+                            android:paddingBottom="14dp"
                             android:paddingTop="8dp"
                             android:text="Bottle Catalog"
                             android:textColor="@color/pos_text_primary"
-                            android:textSize="14sp"
+                            android:textSize="22sp"
+                            android:fontFamily="serif"
                             android:textStyle="bold"
-                            android:letterSpacing="0.01" />
+                            android:letterSpacing="0.02" />
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recyclerProducts"
@@ -453,19 +440,15 @@
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnRetrySync"
-                            android:layout_width="wrap_content"
+                            android:layout_width="110dp"
                             android:layout_height="36dp"
-                            android:paddingStart="12dp"
-                            android:paddingEnd="12dp"
-                            android:backgroundTint="@color/pos_surface"
+                            android:backgroundTint="@color/pos_gold"
                             android:text="Retry"
                             android:textAllCaps="false"
-                            android:textColor="@color/pos_gold_light"
+                            android:textColor="@color/black"
                             android:textSize="12sp"
                             android:textStyle="bold"
-                            app:cornerRadius="12dp"
-                            app:strokeColor="@color/pos_gold_light"
-                            app:strokeWidth="1.5dp"
+                            app:cornerRadius="18dp"
                             app:elevation="2dp"
                             android:visibility="gone" />
                     </LinearLayout>
@@ -604,57 +587,77 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <TextView
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:layout_marginTop="12dp"
-                    android:paddingStart="2dp"
-                    android:paddingBottom="8dp"
-                    android:text="Perfume Cart"
-                    android:textColor="@color/pos_gold_light"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.01" />
+                    app:cardBackgroundColor="@color/pos_surface_dark"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="3dp"
+                    app:strokeColor="@color/pos_border_light"
+                    app:strokeWidth="1dp">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerPerfumeCart"
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:clipToPadding="false"
-                    android:paddingBottom="2dp"
-                    android:nestedScrollingEnabled="false" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="12dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:paddingStart="2dp"
-                    android:paddingBottom="8dp"
-                    android:text="Bottle Cart"
-                    android:textColor="@color/pos_blue_light"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.01" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="8dp"
+                            android:text="Perfume Cart"
+                            android:textColor="@color/pos_gold_light"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.01" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerBottleCart"
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:clipToPadding="false"
-                    android:paddingBottom="2dp"
-                    android:nestedScrollingEnabled="false" />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerPerfumeCart"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:clipToPadding="false"
+                            android:nestedScrollingEnabled="false"
+                            android:paddingBottom="2dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:paddingBottom="8dp"
+                            android:text="Bottle Cart"
+                            android:textColor="@color/pos_blue_light"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.01" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerBottleCart"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:clipToPadding="false"
+                            android:nestedScrollingEnabled="false"
+                            android:paddingBottom="2dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnCheckout"
                     android:layout_width="match_parent"
-                    android:layout_height="54dp"
+                    android:layout_height="56dp"
                     android:layout_marginTop="12dp"
+                    android:layout_marginBottom="4dp"
                     android:backgroundTint="@color/pos_gold_light"
-                    android:text="Checkout"
+                    android:text="Complete Laboratory Sale"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
+                    android:textSize="17sp"
                     android:textStyle="bold"
+                    android:letterSpacing="0.04"
                     app:cornerRadius="16dp"
                     app:elevation="6dp" />
             </LinearLayout>
