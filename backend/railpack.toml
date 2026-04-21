@@ -1,0 +1,6 @@
+[build]
+language = "node"
+
+[language.node]
+version = "20"
+entry = "backend/server.js"
