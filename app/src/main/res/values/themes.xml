@@ -5,9 +5,9 @@
         <!-- Primary Colors (Material Design 3) -->
         <item name="colorPrimary">@color/pos_gold</item>
         <item name="colorPrimaryVariant">@color/pos_gold_light</item>
-        <item name="colorSecondary">@color/pos_blue</item>
-        <item name="colorSecondaryVariant">@color/pos_blue_dark</item>
-        <item name="colorTertiary">@color/pos_purple</item>
+        <item name="colorSecondary">@color/pos_gold</item>
+        <item name="colorSecondaryVariant">@color/pos_gold</item>
+        <item name="colorTertiary">@color/pos_gold_light</item>
         
         <!-- Background & Surface -->
         <item name="android:windowBackground">@drawable/bg_app_modern</item>
@@ -19,7 +19,7 @@
         <item name="colorOnPrimary">@color/black</item>
         <item name="colorOnBackground">@color/pos_text_primary</item>
         <item name="colorOnSurface">@color/pos_text_primary</item>
-        <item name="colorOnSecondary">@color/pos_surface_dark</item>
+        <item name="colorOnSecondary">@color/black</item>
         
         <!-- Status Bar & System -->
         <item name="android:statusBarColor">@color/pos_surface_darker</item>
@@ -88,15 +88,15 @@
     </style>
 
     <style name="ButtonBlueStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="strokeColor">@color/pos_blue_light</item>
-        <item name="android:textColor">@color/pos_blue_light</item>
+        <item name="strokeColor">@color/pos_gold</item>
+        <item name="android:textColor">@color/pos_gold</item>
         <item name="cornerRadius">14dp</item>
         <item name="strokeWidth">2dp</item>
     </style>
 
     <style name="ButtonRedStyle" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/pos_error</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/black</item>
         <item name="cornerRadius">14dp</item>
         <item name="elevation">3dp</item>
     </style>

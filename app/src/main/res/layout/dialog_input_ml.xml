@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="Custom: "
-                android:textColor="#AAAAAA"
+                android:textColor="#B88A1D"
                 android:textSize="14sp" />
 
             <EditText
@@ -92,8 +92,8 @@
                 android:backgroundTint="#D4AF37"
                 android:hint="Enter ml"
                 android:inputType="numberDecimal"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#666666"
+                android:textColor="#FFE082"
+                android:textColorHint="#8A6A1B"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -126,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Product:"
-                    android:textColor="#AAAAAA"
+                    android:textColor="#B88A1D"
                     android:textSize="13sp" />
 
                 <TextView
@@ -134,7 +134,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#FFE082"
                     android:textSize="13sp" />
 
             </LinearLayout>
@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Volume:"
-                    android:textColor="#AAAAAA"
+                    android:textColor="#B88A1D"
                     android:textSize="13sp" />
 
                 <TextView
@@ -158,7 +158,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#FFE082"
                     android:textSize="13sp" />
 
             </LinearLayout>
@@ -174,7 +174,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Price/ml:"
-                    android:textColor="#AAAAAA"
+                    android:textColor="#B88A1D"
                     android:textSize="13sp" />
 
                 <TextView
@@ -182,7 +182,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="-"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#FFE082"
                     android:textSize="13sp" />
 
             </LinearLayout>

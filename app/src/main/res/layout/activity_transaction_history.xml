@@ -12,75 +12,366 @@
         android:layout_margin="12dp"
         app:cardBackgroundColor="@color/pos_surface_dark"
         app:cardCornerRadius="18dp"
-        app:cardElevation="4dp"
+        app:cardElevation="0dp"
         app:strokeColor="@color/pos_border"
         app:strokeWidth="1dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            android:orientation="vertical"
+            android:padding="14dp">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Riwayat Transaksi"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Riwayat Transaksi"
+                        android:textColor="@color/pos_gold_light"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Arsip transaksi pending dan synced"
+                        android:textColor="@color/pos_text_tertiary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBackHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:backgroundTint="@color/pos_surface"
+                    android:text="Kembali"
+                    android:textAllCaps="false"
                     android:textColor="@color/pos_gold"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="Semua transaksi pending dan synced"
-                    android:textColor="@color/pos_text_tertiary"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    app:cornerRadius="12dp"
+                    app:strokeColor="@color/pos_gold"
+                    app:strokeWidth="1dp" />
             </LinearLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnBackHistory"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:backgroundTint="@color/pos_surface"
-                android:text="Kembali"
-                android:textAllCaps="false"
-                android:textColor="@color/pos_gold"
-                android:textSize="12sp"
-                app:cornerRadius="12dp"
-                app:strokeColor="@color/pos_gold"
-                app:strokeWidth="1dp" />
+            <EditText
+                android:id="@+id/edtSearchHistory"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_search_input"
+                android:hint="Cari transaksi..."
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColor="@color/pos_text_primary"
+                android:textColorHint="@color/pos_text_hint"
+                android:textSize="13sp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFilterAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/pos_surface"
+                        android:text="Semua"
+                        android:textAllCaps="false"
+                        android:textColor="@color/pos_gold"
+                        android:textSize="11sp"
+                        app:cornerRadius="999dp"
+                        app:strokeColor="@color/pos_border"
+                        app:strokeWidth="1dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFilterPending"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="@color/pos_surface"
+                        android:text="Pending"
+                        android:textAllCaps="false"
+                        android:textColor="@color/pos_text_secondary"
+                        android:textSize="11sp"
+                        app:cornerRadius="999dp"
+                        app:strokeColor="@color/pos_border"
+                        app:strokeWidth="1dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFilterSynced"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="@color/pos_surface"
+                        android:text="Synced"
+                        android:textAllCaps="false"
+                        android:textColor="@color/pos_text_secondary"
+                        android:textSize="11sp"
+                        app:cornerRadius="999dp"
+                        app:strokeColor="@color/pos_border"
+                        app:strokeWidth="1dp" />
+                </LinearLayout>
+            </HorizontalScrollView>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <TextView
-        android:id="@+id/txtEmptyHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="12dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:padding="18dp"
-        android:text="Belum ada transaksi"
-        android:textColor="@color/pos_text_tertiary"
-        android:textSize="13sp"
-        android:visibility="gone" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerHistory"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="12dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="12dp"
         android:layout_weight="1"
-        android:clipToPadding="false"
-        android:paddingBottom="12dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.25"
+            app:cardBackgroundColor="@color/pos_surface_dark"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/pos_border"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/txtHistoryMeta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Memuat data transaksi..."
+                    android:textColor="@color/pos_text_tertiary"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/txtEmptyHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:padding="18dp"
+                    android:text="Belum ada transaksi"
+                    android:textColor="@color/pos_text_tertiary"
+                    android:textSize="13sp"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:clipToPadding="false"
+                    android:paddingBottom="10dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="0.95"
+            app:cardBackgroundColor="@color/pos_surface_darker"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/pos_border"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Ringkasan Transaksi"
+                        android:textColor="@color/pos_gold_light"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnPrintDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/pos_surface"
+                        android:text="Cetak"
+                        android:textAllCaps="false"
+                        android:textColor="@color/pos_gold"
+                        android:textSize="11sp"
+                        app:cornerRadius="999dp"
+                        app:strokeColor="@color/pos_border"
+                        app:strokeWidth="1dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtDetailRef"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="TRX-00000"
+                    android:textColor="@color/pos_gold"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtDetailDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="-"
+                    android:textColor="@color/pos_text_tertiary"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/txtDetailStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_chip_modern"
+                    android:paddingStart="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="4dp"
+                    android:text="PENDING"
+                    android:textColor="@color/pos_gold"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtDetailItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="-"
+                    android:textColor="@color/pos_text_secondary"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/pos_border" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Cash"
+                        android:textColor="@color/pos_text_tertiary"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/txtDetailCash"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 0"
+                        android:textColor="@color/pos_text_primary"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Kembalian"
+                        android:textColor="@color/pos_text_tertiary"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/txtDetailChange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 0"
+                        android:textColor="@color/pos_text_primary"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Grand Total"
+                        android:textColor="@color/pos_gold"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtDetailGrandTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 0"
+                        android:textColor="@color/pos_gold_light"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSendReceipt"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="@color/pos_gold"
+                    android:text="Kirim Struk Digital"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="12dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
 
 </LinearLayout>

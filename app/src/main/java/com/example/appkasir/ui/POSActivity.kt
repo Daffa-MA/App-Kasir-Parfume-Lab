@@ -2,6 +2,7 @@ package com.example.appkasir.ui
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.InputType
 import android.text.Editable
@@ -197,9 +198,9 @@ class POSActivity : AppCompatActivity() {
         binding.btnTabBottle.visibility = View.VISIBLE
         binding.btnTabBottle.text = "Riwayat"
         binding.btnTabBottle.backgroundTintList = android.content.res.ColorStateList.valueOf(
-            Color.parseColor("#1A1F3F")
+            Color.parseColor("#101010")
         )
-        binding.btnTabBottle.setTextColor(Color.parseColor("#B3B3B3"))
+        binding.btnTabBottle.setTextColor(Color.parseColor("#D4AF37"))
         binding.btnTabBottle.setOnClickListener {
             startActivity(Intent(this, TransactionHistoryActivity::class.java))
         }
@@ -213,9 +214,9 @@ class POSActivity : AppCompatActivity() {
             binding.btnAdmin.visibility = View.VISIBLE
             binding.btnAdmin.text = "Admin"
             binding.btnAdmin.backgroundTintList = android.content.res.ColorStateList.valueOf(
-                Color.parseColor("#1A1F3F")
+                Color.parseColor("#101010")
             )
-            binding.btnAdmin.setTextColor(Color.parseColor("#B3B3B3"))
+            binding.btnAdmin.setTextColor(Color.parseColor("#D4AF37"))
             binding.btnAdmin.setOnClickListener {
                 startActivity(Intent(this, AdminDashboardActivity::class.java))
             }
@@ -384,8 +385,8 @@ class POSActivity : AppCompatActivity() {
     private fun editCartItem(item: CartItem) {
         val input = EditText(this).apply {
             setPadding(48, 36, 48, 24)
-            setTextColor(Color.parseColor("#FFFFFF"))
-            setHintTextColor(Color.parseColor("#8A8A8A"))
+            setTextColor(Color.parseColor("#FFE082"))
+            setHintTextColor(Color.parseColor("#8A6A1B"))
             setBackgroundColor(Color.parseColor("#1E1E1E"))
             setText(
                 when (item) {
@@ -424,7 +425,7 @@ class POSActivity : AppCompatActivity() {
 
         val subtitleView = TextView(this).apply {
             text = "Masukkan jumlah baru"
-            setTextColor(Color.parseColor("#7F8FA3"))
+            setTextColor(Color.parseColor("#B88A1D"))
             textSize = 12f
         }
 
@@ -542,9 +543,9 @@ class POSActivity : AppCompatActivity() {
                 mlText
             }
             
-            // Change text color to red if exceeded
+            // Change text color to darker gold if exceeded
             txtMixTotalMl.setTextColor(
-                if (isExceeded) Color.parseColor("#FF5252") else Color.parseColor("#FFFFFF")
+                if (isExceeded) Color.parseColor("#A67C00") else Color.parseColor("#FFE082")
             )
 
             if (summary.totalAlcoholMl > 0.0) {
@@ -620,6 +621,7 @@ class POSActivity : AppCompatActivity() {
             .create()
 
         activeDialog?.show()
+        activeDialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     }
 
     private fun showLogoutConfirm() {
@@ -703,11 +705,11 @@ class POSActivity : AppCompatActivity() {
 
     private fun applySyncState(state: SyncUiState) {
         val color = when (state.indicator) {
-            SyncIndicator.SYNCED -> Color.parseColor("#4CAF50")
-            SyncIndicator.PENDING -> Color.parseColor("#FFC107")
-            SyncIndicator.OFFLINE -> Color.parseColor("#FF5252")
-            SyncIndicator.ERROR -> Color.parseColor("#FF5252")
-            SyncIndicator.LOADING -> Color.parseColor("#AAAAAA")
+            SyncIndicator.SYNCED -> Color.parseColor("#FFE082")
+            SyncIndicator.PENDING -> Color.parseColor("#D4AF37")
+            SyncIndicator.OFFLINE -> Color.parseColor("#A67C00")
+            SyncIndicator.ERROR -> Color.parseColor("#A67C00")
+            SyncIndicator.LOADING -> Color.parseColor("#B88A1D")
         }
 
         binding.txtSyncStatus.text = when (state.indicator) {

@@ -5,7 +5,8 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+const HOST = '0.0.0.0';
 const DB_PATH = path.join(__dirname, 'pos.db');
 
 // ==================== MIDDLEWARE ====================
@@ -392,11 +393,12 @@ app.get('/stock', (req, res) => {
 
 // ==================== START SERVER ====================
 initDB().then(() => {
-  app.listen(PORT, () => {
+  app.listen(PORT, HOST, () => {
     console.log(`
 ╔══════════════════════════════════════════╗
 ║   POS Backend Server                     ║
 ║   Running on http://localhost:${PORT}       ║
+║   Also accessible via local IP           ║
 ║   Database: ${DB_PATH}    ║
 ╚══════════════════════════════════════════╝
     `);

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:text="Quantity (pcs)"
-        android:textColor="#4A90D9"
+        android:textColor="#D4AF37"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -19,11 +19,11 @@
         android:id="@+id/edtBottleQty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#4A90D9"
+        android:backgroundTint="#D4AF37"
         android:hint="Enter quantity"
         android:inputType="number"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#666666"
+        android:textColor="#FFE082"
+        android:textColorHint="#8A6A1B"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -42,7 +42,7 @@
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:text="1"
-            android:textColor="#4A90D9"
+            android:textColor="#D4AF37"
             android:textSize="14sp" />
 
         <Button
@@ -53,7 +53,7 @@
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:text="2"
-            android:textColor="#4A90D9"
+            android:textColor="#D4AF37"
             android:textSize="14sp" />
 
         <Button
@@ -64,7 +64,7 @@
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:text="5"
-            android:textColor="#4A90D9"
+            android:textColor="#D4AF37"
             android:textSize="14sp" />
 
         <Button
@@ -74,7 +74,7 @@
             android:layout_height="44dp"
             android:layout_weight="1"
             android:text="10"
-            android:textColor="#4A90D9"
+            android:textColor="#D4AF37"
             android:textSize="14sp" />
 
     </LinearLayout>
@@ -92,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Calculation Preview"
-            android:textColor="#4A90D9"
+            android:textColor="#D4AF37"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Product:"
-                android:textColor="#AAAAAA"
+                android:textColor="#B88A1D"
                 android:textSize="13sp" />
 
             <TextView
@@ -115,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-"
-                android:textColor="#FFFFFF"
+                android:textColor="#FFE082"
                 android:textSize="13sp" />
 
         </LinearLayout>
@@ -131,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Quantity:"
-                android:textColor="#AAAAAA"
+                android:textColor="#B88A1D"
                 android:textSize="13sp" />
 
             <TextView
@@ -139,7 +139,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-"
-                android:textColor="#FFFFFF"
+                android:textColor="#FFE082"
                 android:textSize="13sp" />
 
         </LinearLayout>
@@ -155,7 +155,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Price:"
-                android:textColor="#AAAAAA"
+                android:textColor="#B88A1D"
                 android:textSize="13sp" />
 
             <TextView
@@ -163,7 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-"
-                android:textColor="#FFFFFF"
+                android:textColor="#FFE082"
                 android:textSize="13sp" />
 
         </LinearLayout>
@@ -173,7 +173,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:background="#4A90D9" />
+            android:background="#D4AF37" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -185,7 +185,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Subtotal:"
-                android:textColor="#4A90D9"
+                android:textColor="#D4AF37"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -194,7 +194,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rp 0"
-                android:textColor="#4A90D9"
+                android:textColor="#D4AF37"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -207,7 +207,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#4A90D9"
+        android:backgroundTint="#D4AF37"
         android:text="Add to Cart"
         android:textColor="#121212"
         android:textSize="15sp"

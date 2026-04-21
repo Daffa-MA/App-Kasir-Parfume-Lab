@@ -7,7 +7,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object RetrofitClient {
-    private const val BASE_URL = "http://10.0.2.2:8000/api/"
+    // GANTI DENGAN URL DEPLOYMENT KAMU (Railway/Render/Heroku)
+    // Contoh: "https://your-app.up.railway.app/api/"
+    private const val BASE_URL = "https://your-railway-app.up.railway.app/api/"
     private const val API_TOKEN = "dev-pos-token"
 
     private val logger = HttpLoggingInterceptor().apply {

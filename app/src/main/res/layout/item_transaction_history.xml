@@ -1,72 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardHistoryItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
+    android:layout_marginBottom="8dp"
     app:cardBackgroundColor="@color/pos_surface_dark"
     app:cardCornerRadius="14dp"
-    app:cardElevation="2dp"
+    app:cardElevation="0dp"
     app:strokeColor="@color/pos_border"
     app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="14dp">
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/viewHistoryAccent"
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:background="@color/pos_border" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtHistoryId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="#1"
+                    android:textColor="@color/pos_gold"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtHistoryStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_chip_modern"
+                    android:paddingStart="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="4dp"
+                    android:text="PENDING"
+                    android:textColor="@color/pos_text_secondary"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/txtHistoryId"
-                android:layout_width="0dp"
+                android:id="@+id/txtHistoryTime"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="#1"
-                android:textColor="@color/pos_gold"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="4dp"
+                android:text="17 Apr 2026, 22:00"
+                android:textColor="@color/pos_text_tertiary"
+                android:textSize="11sp" />
 
             <TextView
-                android:id="@+id/txtHistoryStatus"
-                android:layout_width="wrap_content"
+                android:id="@+id/txtHistoryItems"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="PENDING"
+                android:layout_marginTop="8dp"
+                android:text="Ocean Breeze x5"
                 android:textColor="@color/pos_text_secondary"
-                android:textSize="11sp"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtHistoryTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Rp 0"
+                android:textColor="@color/pos_gold"
+                android:textSize="17sp"
                 android:textStyle="bold" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/txtHistoryTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="17 Apr 2026, 22:00"
-            android:textColor="@color/pos_text_tertiary"
-            android:textSize="11sp" />
-
-        <TextView
-            android:id="@+id/txtHistoryItems"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Ocean Breeze x5"
-            android:textColor="@color/pos_text_secondary"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/txtHistoryTotal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Rp 0"
-            android:textColor="@color/pos_gold"
-            android:textSize="15sp"
-            android:textStyle="bold" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

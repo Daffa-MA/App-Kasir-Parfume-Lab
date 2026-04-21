@@ -54,8 +54,8 @@ class CartAdapter(
                 txtCartItemSubtotal.setTextColor(Color.parseColor("#D4AF37"))
             } else {
                 txtCartItemIcon.text = "B"
-                txtCartItemIcon.setBackgroundColor(Color.parseColor("#4A90D9"))
-                txtCartItemSubtotal.setTextColor(Color.parseColor("#4A90D9"))
+                txtCartItemIcon.setBackgroundColor(Color.parseColor("#A67C00"))
+                txtCartItemSubtotal.setTextColor(Color.parseColor("#A67C00"))
             }
 
             btnEditItem.setOnClickListener { onEdit(item) }

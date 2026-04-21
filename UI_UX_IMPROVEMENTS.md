@@ -8,16 +8,16 @@ AppKasir telah mendapat peningkatan UI/UX yang signifikan untuk memberikan penga
 ## 🎯 Key Improvements
 
 ### 1. **Enhanced Color Palette**
-✅ Added gradient colors for visual depth
-✅ New accent colors (Pink, Cyan)
+✅ Added black-gold gradient colors for visual depth
+✅ Unified accents to black and gold shades
 ✅ Better shadow and overlay colors
 ✅ Improved contrast for accessibility
 
 **Colors Added:**
-- `pos_gradient_start`: #6A82FB (Blue gradient)
-- `pos_gradient_end`: #FC5C65 (Red gradient)
-- `pos_accent_pink`: #FF69B4
-- `pos_accent_cyan`: #00CED1
+- `pos_gradient_start`: #A67C00 (Dark gold gradient)
+- `pos_gradient_end`: #FFE082 (Light gold gradient)
+- `pos_accent_pink`: #D4AF37 (Gold accent)
+- `pos_accent_cyan`: #FFE082 (Light gold accent)
 - `pos_card_hover`: Hover effect color
 - `pos_shadow`: Shadow overlay
 
@@ -31,8 +31,8 @@ AppKasir telah mendapat peningkatan UI/UX yang signifikan untuk memberikan penga
 ```xml
 <!-- Button Styles -->
 ButtonGoldStyle - Gold buttons with 14dp corner radius
-ButtonBlueStyle - Blue outline buttons with 2dp stroke
-ButtonRedStyle - Red delete/cancel buttons
+ButtonBlueStyle - Gold outline buttons with 2dp stroke
+ButtonRedStyle - Dark-gold delete/cancel buttons
 
 <!-- Text Styles -->
 TitleLargeStyle - 28sp bold gold title
@@ -171,26 +171,26 @@ CurrencyTextStyle - 18sp monospace currency
 ## 🎨 Design System Colors
 
 ### Primary Colors
-- **Gold**: #FFD700 → #FFE047 (Main accent)
-- **Blue**: #5B9EFF → #7CB3FF (Secondary)
-- **Purple**: #9C5DFF (Tertiary)
+- **Gold**: #D4AF37 → #FFE082 (Main accent)
+- **Black**: #0B0B0B → #171717 (Background and surface)
+- **Dark Gold**: #A67C00 (Secondary accent)
 
 ### Status Colors
-- **Success**: #66BB6A (Green)
-- **Warning**: #FFB74D (Orange)
-- **Error**: #FF6B6B (Red)
-- **Info**: #5B9EFF (Blue)
+- **Success**: #FFE082 (Light gold)
+- **Warning**: #D4AF37 (Gold)
+- **Error**: #A67C00 (Dark gold)
+- **Info**: #C9A227 (Muted gold)
 
 ### Background Colors
-- **Main**: #0A0E27 (Dark background)
-- **Surface**: #1A1F3F (Card surface)
-- **Surface Dark**: #151A35 (Darker cards)
+- **Main**: #0B0B0B (Dark background)
+- **Surface**: #141414 (Card surface)
+- **Surface Dark**: #101010 (Darker cards)
 
 ### Text Colors
-- **Primary**: #FFFFFF (Main text)
-- **Secondary**: #B3B3B3 (Secondary text)
-- **Tertiary**: #7F8FA3 (Hint text)
-- **Hint**: #5A6B7F (Placeholder text)
+- **Primary**: #FFE082 (Main text)
+- **Secondary**: #D4AF37 (Secondary text)
+- **Tertiary**: #B88A1D (Hint text)
+- **Hint**: #8A6A1B (Placeholder text)
 
 ---
 

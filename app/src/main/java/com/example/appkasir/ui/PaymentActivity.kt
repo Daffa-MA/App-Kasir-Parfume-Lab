@@ -33,6 +33,7 @@ class PaymentActivity : AppCompatActivity() {
         setupTabs()
         setupCashInput()
         setupQuickCashButtons()
+        setupNumericKeypad()
         setupPayAction()
     }
 
@@ -45,8 +46,8 @@ class PaymentActivity : AppCompatActivity() {
     private fun selectMethod(method: PaymentMethod) {
         currentMethod = method
         val gold = Color.parseColor("#D4AF37")
-        val dark = Color.parseColor("#2A2A2A")
-        val black = Color.parseColor("#121212")
+        val dark = Color.parseColor("#101010")
+        val black = Color.parseColor("#000000")
 
         if (method == PaymentMethod.CASH) {
             binding.btnTabCash.backgroundTintList = android.content.res.ColorStateList.valueOf(gold)
@@ -105,11 +106,40 @@ class PaymentActivity : AppCompatActivity() {
         quickButtons.forEach { (button, value) ->
             button.setOnClickListener {
                 val finalValue = if (button.id == binding.btnQuickExact.id) totalAmount else value
-                val text = formatNumber(finalValue)
-                binding.edtCash.setText(text)
-                binding.edtCash.setSelection(text.length)
-                updateChange(finalValue)
+                setCashValue(finalValue)
             }
+        }
+    }
+
+    private fun setupNumericKeypad() {
+        val keypadButtons = listOf(
+            binding.btnKey1 to "1",
+            binding.btnKey2 to "2",
+            binding.btnKey3 to "3",
+            binding.btnKey4 to "4",
+            binding.btnKey5 to "5",
+            binding.btnKey6 to "6",
+            binding.btnKey7 to "7",
+            binding.btnKey8 to "8",
+            binding.btnKey9 to "9",
+            binding.btnKey0 to "0",
+            binding.btnKey00 to "00"
+        )
+
+        keypadButtons.forEach { (button, token) ->
+            button.setOnClickListener {
+                val currentRaw = binding.edtCash.text.toString().filter { it.isDigit() }
+                val nextRaw = (currentRaw + token).take(15)
+                val nextValue = nextRaw.toLongOrNull() ?: 0L
+                setCashValue(nextValue)
+            }
+        }
+
+        binding.btnKeyBackspace.setOnClickListener {
+            val currentRaw = binding.edtCash.text.toString().filter { it.isDigit() }
+            val nextRaw = if (currentRaw.isNotEmpty()) currentRaw.dropLast(1) else ""
+            val nextValue = nextRaw.toLongOrNull() ?: 0L
+            setCashValue(nextValue)
         }
     }
 
@@ -163,7 +193,7 @@ class PaymentActivity : AppCompatActivity() {
         val change = if (diff >= 0) diff else 0L
         binding.txtChange.text = formatCurrency(change)
         binding.txtChange.setTextColor(
-            if (diff >= 0) Color.parseColor("#4CAF50") else Color.parseColor("#FF5252")
+            if (diff >= 0) Color.parseColor("#FFE082") else Color.parseColor("#A67C00")
         )
 
         if (diff < 0) {
@@ -171,6 +201,16 @@ class PaymentActivity : AppCompatActivity() {
             binding.txtShortInfo.text = "Kurang: ${formatCurrency(-diff)}"
         } else {
             binding.txtShortInfo.visibility = View.GONE
+        }
+    }
+
+    private fun setCashValue(value: Long) {
+        val text = if (value == 0L) "" else formatNumber(value)
+        if (binding.edtCash.text.toString() != text) {
+            binding.edtCash.setText(text)
+            binding.edtCash.setSelection(text.length)
+        } else {
+            updateChange(value)
         }
     }
 

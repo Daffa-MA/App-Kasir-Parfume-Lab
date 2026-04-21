@@ -1,7 +1,6 @@
 package com.example.appkasir.ui.adapter
 
-import android.text.Editable
-import android.text.TextWatcher
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -94,19 +93,14 @@ class PerfumeMixAdapter(
             
             if (isAvailable) {
                 itemView.alpha = 1f
-                // Update text colors based on selection
-                val textColor = if (isSelected) {
-                    itemView.context.getColor(android.R.color.white)
-                } else {
-                    itemView.context.getColor(android.R.color.darker_gray)
-                }
-                txtName.setTextColor(textColor)
-                txtMeta.alpha = if (isSelected) 1f else 0.7f
+                txtName.setTextColor(if (isSelected) Color.parseColor("#E2E2E2") else Color.parseColor("#B8B8B8"))
+                txtMeta.setTextColor(Color.parseColor("#D4AF37"))
+                txtMeta.alpha = if (isSelected) 1f else 0.85f
             } else {
-                // Out of stock
-                itemView.alpha = 0.6f
-                txtName.setTextColor(itemView.context.getColor(android.R.color.darker_gray))
-                txtMeta.alpha = 0.5f
+                itemView.alpha = 0.5f
+                txtName.setTextColor(Color.parseColor("#727272"))
+                txtMeta.setTextColor(Color.parseColor("#8A6A1B"))
+                txtMeta.alpha = 0.6f
             }
 
             chkUse.setOnCheckedChangeListener { _, isChecked ->

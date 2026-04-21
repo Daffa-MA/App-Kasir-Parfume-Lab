@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
-    app:cardBackgroundColor="@color/pos_surface"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/pos_surface_darker"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp"
     app:strokeColor="@color/pos_border"
     app:strokeWidth="1dp">
 
@@ -15,10 +15,10 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingStart="12dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="12dp"
-        android:paddingBottom="10dp">
+        android:paddingStart="14dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="12dp">
 
         <CheckBox
             android:id="@+id/chkUsePerfume"
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:text="Parfum"
-                android:textColor="@color/pos_text_primary"
+                android:textColor="#B8B8B8"
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
@@ -49,14 +49,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="Rp 15.000/ml | stock 500 ml"
-                android:textColor="@color/pos_text_tertiary"
+                android:textColor="@color/pos_gold"
                 android:textSize="11sp" />
         </LinearLayout>
 
         <EditText
             android:id="@+id/edtMixMl"
-            android:layout_width="72dp"
-            android:layout_height="40dp"
+            android:layout_width="74dp"
+            android:layout_height="42dp"
             android:background="@drawable/bg_ml_input"
             android:gravity="center"
             android:hint="ml"
