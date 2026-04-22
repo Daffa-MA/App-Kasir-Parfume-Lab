@@ -20,16 +20,13 @@ jobs:
 
       - name: Setup Android SDK
         run: |
-          mkdir -p $HOME/android-sdk
-          cd $HOME/android-sdk
-          wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O cmdline-tools.zip
-          unzip -q cmdline-tools.zip
-          mkdir -p cmdline-tools/latest
-          mv cmdline-tools/* cmdline-tools/latest/ 2>/dev/null || true
-          export ANDROID_HOME=$HOME/android-sdk
-          export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+          # Use pre-installed SDK and fix env conflict
+          rm -rf $HOME/android-sdk
+          unset ANDROID_SDK_ROOT
+          export ANDROID_HOME=/usr/local/lib/android/sdk
+          export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
           yes | sdkmanager --licenses > /dev/null 2>&1 || true
-          sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0" > /dev/null 2>&1
+          sdkmanager "platforms;android-34" "build-tools;34.0.0" > /dev/null 2>&1 || true
         shell: bash
 
       - name: Grant execute permission for gradlew
@@ -37,7 +34,8 @@ jobs:
 
       - name: Build debug APK
         run: |
-          export ANDROID_HOME=$HOME/android-sdk
+          unset ANDROID_SDK_ROOT
+          export ANDROID_HOME=/usr/local/lib/android/sdk
           ./gradlew assembleDebug
 
       - name: Upload APK
