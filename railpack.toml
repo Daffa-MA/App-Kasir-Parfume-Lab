@@ -1,0 +1,7 @@
+[build]
+language = "node"
+build = "npm install"
+start = "node backend/server.js"
+
+[language.node]
+version = "20"
