@@ -1,6 +1,12 @@
+[providers]
+node = true
+java = false
+
 [build]
-language = "node"
-build = "npm install"
+install = "cd backend && npm install"
+command = "cd backend && npm install"
+
+[deploy]
 start = "node backend/server.js"
 
 [language.node]
