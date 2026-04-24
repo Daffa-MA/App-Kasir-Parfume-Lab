@@ -1,4 +1,4 @@
-name: Build Android APK
+name: Build and Distribute Android APK
 
 on:
   push:
@@ -43,3 +43,14 @@ jobs:
         with:
           name: appkasir-debug.apk
           path: app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Distribute APK to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          groups: ${{ secrets.FIREBASE_TESTER_GROUPS }}
+          file: app/build/outputs/apk/debug/app-debug.apk
+          releaseNotes: |
+            Build from GitHub Actions
+            Commit: ${{ github.sha }}

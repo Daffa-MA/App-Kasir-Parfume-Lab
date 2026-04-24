@@ -1,41 +1,46 @@
-# Railway Deployment Guide
+# Firebase App Distribution Guide
 
-## Quick Deploy (Click Button)
+## Tujuan
 
-1. Buat akun di https://railway.app
-2. Klik tombol "New Project" → "Deploy from GitHub repo"
-3. Pilih repository ini
-4. Railway会自动检测 Node.js 项目
+Guide ini untuk distribusi APK Android lewat Firebase App Distribution menggunakan GitHub Actions.
 
-## Atau Manual Deploy
+## 1) Setup di Firebase Console
 
-```bash
-# Install Railway CLI
-npm install -g @railway/cli
+1. Buka [Firebase Console](https://console.firebase.google.com/).
+2. Pilih project Firebase yang dipakai aplikasi ini.
+3. Tambahkan Android app jika belum ada.
+4. Aktifkan **App Distribution**.
+5. Catat **Firebase App ID** Android (format: `1:xxx:android:yyy`).
+6. Buat tester group di App Distribution (contoh: `internal-testers`).
 
-# Login
-railway login
+## 2) Buat Service Account untuk CI
 
-# Initialize project
-railway init
+1. Buka **Project settings** -> **Service accounts**.
+2. Klik **Generate new private key**.
+3. Simpan file JSON key dengan aman.
 
-# Deploy
-railway up
-```
+## 3) Set GitHub Secrets
 
-## Setelah Deploy
+Di repository GitHub -> **Settings** -> **Secrets and variables** -> **Actions**, tambahkan:
 
-1. Railway会给你一个 URL, 比如: `https://your-app.up.railway.app`
-2. Copy URL itu ke `RetrofitClient.kt`:
-   ```kotlin
-   private const val BASE_URL = "https://your-app.up.railway.app/api/"
-   ```
-3. Build ulang APK
+- `FIREBASE_APP_ID`: Firebase App ID Android.
+- `FIREBASE_SERVICE_ACCOUNT`: isi penuh JSON service account (copy-paste seluruh konten file JSON).
+- `FIREBASE_TESTER_GROUPS`: nama grup tester, contoh `internal-testers`.
 
-## Catatan
+## 4) Trigger Distribusi
 
-- Railway requires credit card untuk deploy (gratis tier 500 jam/bulan)
-- Untuk alternatif gratis tanpa credit card, bisa pakai:
-  - **Render** (https://render.com)
-  - **Fly.io** (https://fly.io)
-  - **Cyclic** (https://cyclic.sh) - gratis, no credit card
+Workflow ada di `.github/workflows/android-build.yml` dan otomatis jalan saat:
+
+- push ke branch `main`
+- dijalankan manual dari tab **Actions** (`workflow_dispatch`)
+
+Hasilnya:
+
+- APK debug tetap di-upload sebagai artifact GitHub Actions.
+- APK yang sama didistribusikan ke Firebase App Distribution.
+
+## 5) Verifikasi
+
+1. Cek run workflow di GitHub Actions harus sukses.
+2. Buka Firebase Console -> **App Distribution**.
+3. Pastikan release baru muncul dan terkirim ke tester group.
