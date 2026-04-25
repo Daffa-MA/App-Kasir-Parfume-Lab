@@ -6,16 +6,20 @@ plugins {
 
 android {
     namespace = "com.example.appkasir"
-    compileSdk = 36
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.appkasir"
-        minSdk = 25
-        targetSdk = 36
+        minSdk = 24
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -26,16 +30,30 @@ android {
                 "proguard-rules.pro"
             )
         }
+        debug {
+            isDebuggable = true
+            applicationIdSuffix = ".debug"
+        }
     }
+    
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
+    
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "1.8"
     }
+    
     buildFeatures {
         viewBinding = true
+        buildConfig = true
+    }
+    
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
@@ -56,6 +74,7 @@ dependencies {
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.google.gson)
+    
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

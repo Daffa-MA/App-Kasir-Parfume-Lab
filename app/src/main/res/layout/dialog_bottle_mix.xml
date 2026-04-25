@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:text="Mix untuk Vial 3ml"
-                    android:textColor="@color/pos_gold_light"
+                    android:textColor="@color/pos_gray_800"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:text="Vial 3ml | Rp 1.500,00"
-                    android:textColor="@color/pos_gold"
+                    android:textColor="@color/pos_gray_600"
                     android:textSize="13sp" />
 
                 <TextView
@@ -134,7 +134,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
                                     android:text="0 ml"
-                                    android:textColor="@color/pos_gold_light"
+                                    android:textColor="@color/pos_gray_800"
                                     android:textSize="14sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -161,7 +161,7 @@
                                     android:layout_marginTop="2dp"
                                     android:gravity="end"
                                     android:text="0 ml"
-                                    android:textColor="@color/pos_gold_light"
+                                    android:textColor="@color/pos_gray_800"
                                     android:textSize="14sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -200,7 +200,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
                                     android:text="Rp 0"
-                                    android:textColor="@color/pos_gold"
+                                    android:textColor="@color/pos_gray_700"
                                     android:textSize="13sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -227,7 +227,7 @@
                                     android:layout_marginTop="2dp"
                                     android:gravity="end"
                                     android:text="Rp 0 + Rp 0"
-                                    android:textColor="@color/pos_gold_light"
+                                    android:textColor="@color/pos_gray_700"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
@@ -252,7 +252,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="Rp 0"
-                            android:textColor="@color/pos_gold_light"
+                            android:textColor="@color/pos_gray_900"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -263,10 +263,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginTop="14dp"
-                    android:backgroundTint="@color/pos_gold"
+                    android:backgroundTint="@color/pos_gray_800"
                     android:text="✓ Tambah ke Cart"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:cornerRadius="10dp"

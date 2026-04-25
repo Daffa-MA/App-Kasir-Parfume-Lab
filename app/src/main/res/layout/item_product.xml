@@ -7,9 +7,9 @@
     android:layout_marginTop="6dp"
     android:layout_marginEnd="6dp"
     android:layout_marginBottom="6dp"
-    app:cardBackgroundColor="@color/pos_surface_dark"
+    app:cardBackgroundColor="@color/pos_surface"
     app:cardCornerRadius="20dp"
-    app:cardElevation="4dp"
+    app:cardElevation="6dp"
     app:strokeColor="@color/pos_border_light"
     app:strokeWidth="1dp">
 
@@ -28,9 +28,9 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="52dp"
                 android:layout_height="52dp"
-                app:cardBackgroundColor="@color/pos_blue_light"
+                app:cardBackgroundColor="@color/pos_gray_600"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="0dp">
+                app:cardElevation="2dp">
 
                 <ImageView
                     android:id="@+id/imgProduct"
@@ -38,7 +38,7 @@
                     android:layout_height="match_parent"
                     android:padding="10dp"
                     android:src="@drawable/ic_catalog_bottle"
-                    android:tint="@color/pos_surface_dark" />
+                    android:tint="@color/white" />
             </com.google.android.material.card.MaterialCardView>
 
             <View
@@ -64,7 +64,7 @@
                     android:paddingEnd="10dp"
                     android:paddingBottom="5dp"
                     android:text="100 pcs"
-                    android:textColor="@color/pos_gold_light"
+                    android:textColor="@color/pos_gray_700"
                     android:textSize="11sp"
                     android:textStyle="bold" />
             </com.google.android.material.card.MaterialCardView>
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="Rp 7.500 | 30 ml"
-            android:textColor="@color/pos_blue_light"
+            android:textColor="@color/pos_gray_600"
             android:textSize="12sp"
             android:textStyle="bold" />
 
@@ -116,7 +116,7 @@
                 android:layout_height="24dp"
                 android:gravity="center"
                 android:text="+"
-                android:textColor="@color/pos_gold_light"
+                android:textColor="@color/pos_gray_700"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>

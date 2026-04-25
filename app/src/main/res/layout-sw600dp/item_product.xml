@@ -38,7 +38,7 @@
                     android:layout_height="28dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_catalog_bottle"
-                    android:tint="@color/pos_gold_light" />
+                    android:tint="@color/pos_gray_600" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="wrap_content"
@@ -61,7 +61,7 @@
                         android:paddingEnd="10dp"
                         android:paddingBottom="4dp"
                         android:text="199 pcs"
-                        android:textColor="@color/pos_gold_light"
+                        android:textColor="@color/pos_gray_700"
                         android:textSize="11sp"
                         android:textStyle="bold" />
                 </com.google.android.material.card.MaterialCardView>
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="TECHNICAL SPEC"
-            android:textColor="@color/pos_gold_light"
+            android:textColor="@color/pos_gray_700"
             android:textSize="10sp"
             android:textStyle="bold" />
 
@@ -132,7 +132,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="+"
-                    android:textColor="@color/pos_blue_light"
+                    android:textColor="@color/pos_gray_700"
                     android:textSize="22sp"
                     android:textStyle="bold" />
             </com.google.android.material.card.MaterialCardView>

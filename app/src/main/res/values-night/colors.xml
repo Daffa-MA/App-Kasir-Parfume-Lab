@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Night Theme - Dark Monochrome -->
+    <color name="pos_background">#121212</color>
+    <color name="pos_surface">#1E1E1E</color>
+    <color name="pos_surface_dark">#171717</color>
+    <color name="pos_surface_darker">#0A0A0A</color>
+
+    <!-- Accent Colors - Light Gray for Dark Theme -->
+    <color name="pos_black">#E0E0E0</color>
+    <color name="pos_black_dark">#BDBDBD</color>
+    <color name="pos_black_light">#9E9E9E</color>
+    <color name="pos_green">#4CAF50</color>
+
+    <!-- Text Colors - Adjusted for Dark Theme -->
+    <color name="pos_text_primary">#FFFFFF</color>
+    <color name="pos_text_secondary">#E0E0E0</color>
+    <color name="pos_text_tertiary">#BDBDBD</color>
+    <color name="pos_text_hint">#757575</color>
+
+    <!-- Borders - Lighter for Dark Theme -->
+    <color name="pos_border">#333333</color>
+    <color name="pos_border_light">#424242</color>
+</resources>

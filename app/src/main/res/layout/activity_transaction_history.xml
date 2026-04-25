@@ -38,7 +38,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Riwayat Transaksi"
-                        android:textColor="@color/pos_gold_light"
+                        android:textColor="@color/pos_gray_800"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -58,10 +58,10 @@
                     android:backgroundTint="@color/pos_surface"
                     android:text="Kembali"
                     android:textAllCaps="false"
-                    android:textColor="@color/pos_gold"
+                    android:textColor="@color/pos_gray_700"
                     android:textSize="12sp"
                     app:cornerRadius="12dp"
-                    app:strokeColor="@color/pos_gold"
+                    app:strokeColor="@color/pos_gray_600"
                     app:strokeWidth="1dp" />
             </LinearLayout>
 
@@ -96,7 +96,7 @@
                         android:backgroundTint="@color/pos_surface"
                         android:text="Semua"
                         android:textAllCaps="false"
-                        android:textColor="@color/pos_gold"
+                        android:textColor="@color/pos_gray_700"
                         android:textSize="11sp"
                         app:cornerRadius="999dp"
                         app:strokeColor="@color/pos_border"
@@ -218,7 +218,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Ringkasan Transaksi"
-                        android:textColor="@color/pos_gold_light"
+                        android:textColor="@color/pos_gray_800"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -229,7 +229,7 @@
                         android:backgroundTint="@color/pos_surface"
                         android:text="Cetak"
                         android:textAllCaps="false"
-                        android:textColor="@color/pos_gold"
+                        android:textColor="@color/pos_gray_700"
                         android:textSize="11sp"
                         app:cornerRadius="999dp"
                         app:strokeColor="@color/pos_border"
@@ -242,7 +242,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="TRX-00000"
-                    android:textColor="@color/pos_gold"
+                    android:textColor="@color/pos_gray_700"
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
@@ -266,7 +266,7 @@
                     android:paddingEnd="10dp"
                     android:paddingBottom="4dp"
                     android:text="PENDING"
-                    android:textColor="@color/pos_gold"
+                    android:textColor="@color/pos_gray_600"
                     android:textSize="10sp"
                     android:textStyle="bold" />
 
@@ -344,7 +344,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Grand Total"
-                        android:textColor="@color/pos_gold"
+                        android:textColor="@color/pos_gray_700"
                         android:textSize="13sp"
                         android:textStyle="bold" />
 
@@ -353,7 +353,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rp 0"
-                        android:textColor="@color/pos_gold_light"
+                        android:textColor="@color/pos_gray_900"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -363,10 +363,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="42dp"
                     android:layout_marginTop="12dp"
-                    android:backgroundTint="@color/pos_gold"
+                    android:backgroundTint="@color/pos_gray_800"
                     android:text="Kirim Struk Digital"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     app:cornerRadius="12dp" />

@@ -45,7 +45,7 @@ class PaymentActivity : AppCompatActivity() {
 
     private fun selectMethod(method: PaymentMethod) {
         currentMethod = method
-        val gold = Color.parseColor("#D4AF37")
+        val gold = Color.parseColor("#424242")
         val dark = Color.parseColor("#101010")
         val black = Color.parseColor("#000000")
 

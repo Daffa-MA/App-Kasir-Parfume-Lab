@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Checkout &amp; Payment"
-                android:textColor="@color/pos_gold_light"
+                android:textColor="@color/pos_gray_800"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -86,7 +86,7 @@
                         android:layout_marginTop="6dp"
                         android:gravity="center"
                         android:text="Rp 0"
-                        android:textColor="@color/pos_gold_light"
+                        android:textColor="@color/pos_gray_900"
                         android:textSize="38sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -114,10 +114,10 @@
                         android:layout_height="44dp"
                         android:layout_marginEnd="6dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/pos_gold"
+                        android:backgroundTint="@color/pos_gray_800"
                         android:text="Cash"
                         android:textAllCaps="false"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textStyle="bold"
                         app:cornerRadius="999dp" />
 
@@ -130,7 +130,7 @@
                         android:backgroundTint="@color/pos_surface"
                         android:text="QRIS"
                         android:textAllCaps="false"
-                        android:textColor="@color/pos_gold"
+                        android:textColor="@color/pos_gray_700"
                         android:textStyle="bold"
                         app:cornerRadius="999dp"
                         app:strokeColor="@color/pos_border"
@@ -182,7 +182,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Rp"
-                                android:textColor="@color/pos_gold"
+                                android:textColor="@color/pos_gray_700"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
 
@@ -333,7 +333,7 @@
                                 android:layout_margin="3dp"
                                 android:text="DEL"
                                 android:textAllCaps="false"
-                                android:textColor="@color/pos_gold"
+                                android:textColor="@color/pos_error"
                                 app:cornerRadius="10dp" />
                         </GridLayout>
 
@@ -458,7 +458,7 @@
                             android:layout_marginTop="4dp"
                             android:gravity="center"
                             android:text="Rp 0"
-                            android:textColor="@color/pos_gold_light"
+                            android:textColor="@color/pos_gray_800"
                             android:textSize="30sp"
                             android:textStyle="bold" />
 
@@ -521,7 +521,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="Scan untuk bayar"
-                    android:textColor="@color/pos_gold"
+                    android:textColor="@color/pos_gray_700"
                     android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
@@ -532,10 +532,10 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/pos_gold"
+        android:backgroundTint="@color/pos_gray_800"
         android:text="Complete Transaction"
         android:textAllCaps="false"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="14dp"

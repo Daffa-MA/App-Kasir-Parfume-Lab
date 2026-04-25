@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tambah Parfum"
-            android:textColor="@color/pos_gold"
+            android:textColor="@color/pos_gray_800"
             android:textSize="18sp"
             android:textStyle="bold" />
 

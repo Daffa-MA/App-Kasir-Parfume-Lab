@@ -7,9 +7,9 @@
     android:layout_marginTop="6dp"
     android:layout_marginEnd="6dp"
     android:layout_marginBottom="6dp"
-    app:cardBackgroundColor="@color/pos_surface_dark"
+    app:cardBackgroundColor="@color/pos_surface"
     app:cardCornerRadius="18dp"
-    app:cardElevation="3dp"
+    app:cardElevation="4dp"
     app:strokeColor="@color/pos_border_light"
     app:strokeWidth="1dp">
 
@@ -33,7 +33,7 @@
             android:textSize="12sp"
             android:textStyle="bold"
             android:background="@drawable/ic_launcher_foreground"
-            app:backgroundTint="@color/pos_blue_light" />
+            app:backgroundTint="@color/pos_gray_600" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Rp 100.000"
-                android:textColor="@color/pos_gold_light"
+                android:textColor="@color/pos_gray_800"
                 android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -81,7 +81,7 @@
             android:contentDescription="Edit"
             android:src="@android:drawable/ic_menu_edit"
             android:scaleType="centerInside"
-            app:tint="@color/pos_blue_light" />
+            app:tint="@color/pos_gray_600" />
 
         <ImageButton
             android:id="@+id/btnRemoveItem"

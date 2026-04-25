@@ -1,68 +1,83 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Primary Colors -->
-    <color name="brand_primary">#D4AF37</color>
-    <color name="brand_primary_dark">#A67C00</color>
-    <color name="brand_secondary">#141414</color>
-    <color name="brand_surface">#101010</color>
-    <color name="brand_background">#080808</color>
-    <color name="brand_text_primary">#FFE082</color>
-    <color name="brand_text_secondary">#C9A227</color>
+    <!-- Primary Colors - Black & White Theme -->
+    <color name="brand_primary">#212121</color>
+    <color name="brand_primary_dark">#000000</color>
+    <color name="brand_secondary">#F5F5F5</color>
+    <color name="brand_surface">#FFFFFF</color>
+    <color name="brand_background">#FAFAFA</color>
+    <color name="brand_text_primary">#212121</color>
+    <color name="brand_text_secondary">#757575</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFE082</color>
+    <color name="white">#FFFFFFFF</color>
 
-    <!-- Dark Theme Colors (POS) - Material Design 3 -->
-    <color name="pos_background">#0B0B0B</color>
-    <color name="pos_surface">#141414</color>
-    <color name="pos_surface_dark">#101010</color>
-    <color name="pos_surface_darker">#000000</color>
+    <!-- Light Theme Colors (POS) - Monochrome -->
+    <color name="pos_background">#FFFFFF</color>
+    <color name="pos_surface">#FFFFFF</color>
+    <color name="pos_surface_dark">#F5F5F5</color>
+    <color name="pos_surface_darker">#EEEEEE</color>
 
-    <!-- Accent Colors - Black & Gold -->
-    <color name="pos_gold">#D4AF37</color>
-    <color name="pos_gold_muted">#33D4AF37</color>
-    <color name="pos_gold_light">#FFE082</color>
-    <color name="pos_blue">#C9A227</color>
-    <color name="pos_blue_dark">#A67C00</color>
-    <color name="pos_blue_light">#F2CF63</color>
-    <color name="pos_green">#D4AF37</color>
-    <color name="pos_green_bg">#1FD4AF37</color>
-    <color name="pos_red">#A67C00</color>
-    <color name="pos_purple">#B88A1D</color>
-    <color name="pos_teal">#E5C158</color>
+    <!-- Monochrome Gray Scale -->
+    <color name="pos_black">#212121</color>
+    <color name="pos_black_dark">#000000</color>
+    <color name="pos_black_light">#616161</color>
+    <color name="pos_gray_900">#212121</color>
+    <color name="pos_gray_800">#424242</color>
+    <color name="pos_gray_700">#616161</color>
+    <color name="pos_gray_600">#757575</color>
+    <color name="pos_gray_500">#9E9E9E</color>
+    <color name="pos_gray_400">#BDBDBD</color>
+    <color name="pos_gray_300">#E0E0E0</color>
+    <color name="pos_gray_200">#EEEEEE</color>
+    <color name="pos_gray_100">#F5F5F5</color>
+
+    <!-- Status Colors (Green, Red, Purple, Teal) -->
+    <color name="pos_green">#4CAF50</color>
+    <color name="pos_green_bg">#1F4CAF50</color>
+    <color name="pos_red">#F44336</color>
+    <color name="pos_purple">#9C27B0</color>
+    <color name="pos_teal">#00BCD4</color>
 
     <!-- Text Colors -->
-    <color name="pos_text_primary">#FFE082</color>
-    <color name="pos_text_secondary">#D4AF37</color>
-    <color name="pos_text_tertiary">#B88A1D</color>
-    <color name="pos_text_hint">#8A6A1B</color>
+    <color name="pos_text_primary">#212121</color>
+    <color name="pos_text_secondary">#424242</color>
+    <color name="pos_text_tertiary">#757575</color>
+    <color name="pos_text_hint">#BDBDBD</color>
 
     <!-- Dividers and Borders -->
-    <color name="pos_divider">#3B2F0E</color>
-    <color name="pos_border">#4A3A10</color>
-    <color name="pos_border_light">#5A4814</color>
+    <color name="pos_divider">#E0E0E0</color>
+    <color name="pos_border">#E0E0E0</color>
+    <color name="pos_border_light">#BDBDBD</color>
 
     <!-- Status Colors -->
-    <color name="pos_success">#FFE082</color>
-    <color name="pos_warning">#D4AF37</color>
-    <color name="pos_error">#A67C00</color>
-    <color name="pos_info">#C9A227</color>
+    <color name="pos_success">#4CAF50</color>
+    <color name="pos_warning">#FF9800</color>
+    <color name="pos_error">#F44336</color>
+    <color name="pos_info">#757575</color>
 
     <!-- Gradient & Overlay Colors -->
     <color name="pos_overlay_dark">#1A000000</color>
-    <color name="pos_overlay_light">#1AD4AF37</color>
-    <color name="pos_gradient_start">#A67C00</color>
-    <color name="pos_gradient_end">#FFE082</color>
-    <color name="pos_background_start">#050505</color>
-    <color name="pos_background_mid">#101010</color>
-    <color name="pos_background_end">#171717</color>
-    <color name="pos_background_glow_gold">#26D4AF37</color>
-    <color name="pos_background_glow_blue">#1AA67C00</color>
+    <color name="pos_overlay_light">#1A000000</color>
+    <color name="pos_gradient_start">#212121</color>
+    <color name="pos_gradient_end">#616161</color>
+    <color name="pos_background_start">#FFFFFF</color>
+    <color name="pos_background_mid">#F5F5F5</color>
+    <color name="pos_background_end">#EEEEEE</color>
+    <color name="pos_overlay_gray">#1A212121</color>
 
     <!-- Additional UI Colors -->
-    <color name="pos_card_hover">#26D4AF37</color>
-    <color name="pos_shadow">#55000000</color>
-    <color name="pos_accent_pink">#D4AF37</color>
-    <color name="pos_accent_cyan">#FFE082</color>
-    <color name="pos_light_gray">#FFE082</color>
-    <color name="pos_dark_gray">#1A1A1A</color>
+    <color name="pos_card_hover">#1A212121</color>
+    <color name="pos_shadow">#33000000</color>
+    <color name="pos_accent_pink">#E91E63</color>
+    <color name="pos_accent_cyan">#00BCD4</color>
+
+    <!-- Legacy Aliases - now using monochrome colors -->
+    <color name="pos_gold">#424242</color>
+    <color name="pos_gold_muted">#424242</color>
+    <color name="pos_gold_light">#757575</color>
+    <color name="pos_background_glow_gold">#1A212121</color>
+    <color name="pos_background_glow_blue">#1A000000</color>
+    <color name="pos_blue">#212121</color>
+    <color name="pos_blue_dark">#000000</color>
+    <color name="pos_blue_light">#616161</color>
 </resources>

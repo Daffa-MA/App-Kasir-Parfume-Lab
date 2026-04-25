@@ -81,7 +81,7 @@
             android:contentDescription="Edit"
             android:src="@android:drawable/ic_menu_edit"
             android:scaleType="centerInside"
-            app:tint="@color/pos_blue_light" />
+            app:tint="@color/pos_gray_600" />
 
         <ImageButton
             android:id="@+id/btnDeleteProduct"

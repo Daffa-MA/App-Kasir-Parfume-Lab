@@ -33,9 +33,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="AppKasir"
-            android:textColor="@color/pos_gold_light"
-            android:textSize="32sp"
+            android:textColor="@color/pos_gray_800"
+            android:textSize="36sp"
             android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="0.02"
             android:layout_marginBottom="8dp" />
 
         <!-- Subtitle -->
@@ -44,7 +46,8 @@
             android:layout_height="wrap_content"
             android:text="Modern POS System"
             android:textColor="@color/pos_text_secondary"
-            android:textSize="14sp" />
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-medium" />
     </LinearLayout>
 
     <!-- Login Card -->
@@ -67,9 +70,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Welcome Back"
-                android:textColor="@color/pos_text_primary"
-                android:textSize="24sp"
+                android:textColor="@color/pos_gray_900"
+                android:textSize="26sp"
                 android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
                 android:layout_marginBottom="8dp" />
 
             <TextView
@@ -77,8 +81,8 @@
                 android:layout_height="wrap_content"
                 android:text="Sign in to continue"
                 android:textColor="@color/pos_text_secondary"
-                android:textSize="13sp"
-                android:layout_marginBottom="24dp" />
+                android:textSize="14sp"
+                android:layout_marginBottom="28dp" />
 
             <!-- Username Input -->
             <com.google.android.material.textfield.TextInputLayout
@@ -138,15 +142,18 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
+                android:layout_height="56dp"
                 android:text="Sign In"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.02"
-                app:backgroundTint="@color/pos_gold_light"
-                app:cornerRadius="12dp"
-                android:textColor="@color/pos_background"
-                android:layout_marginBottom="16dp" />
+                android:fontFamily="sans-serif-medium"
+                app:backgroundTint="@color/pos_gray_800"
+                app:cornerRadius="14dp"
+                android:textColor="@color/white"
+                app:elevation="8dp"
+                app:rippleColor="@color/pos_gray_400"
+                android:layout_marginBottom="20dp" />
 
             <!-- Divider -->
             <View
@@ -174,9 +181,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sign Up"
-                    android:textColor="@color/pos_gold_light"
-                    android:textSize="13sp"
+                    android:textColor="@color/pos_gray_700"
+                    android:textSize="14sp"
                     android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
                     android:paddingEnd="4dp" />
             </LinearLayout>
         </LinearLayout>
@@ -200,10 +208,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Demo Credentials:"
-                android:textColor="@color/pos_blue_light"
-                android:textSize="12sp"
+                android:textColor="@color/pos_gray_700"
+                android:textSize="13sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginBottom="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"

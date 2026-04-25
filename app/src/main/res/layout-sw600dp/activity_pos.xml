@@ -44,7 +44,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
                         android:text="Perfume Lab POS"
-                        android:textColor="@color/pos_gold_light"
+                        android:textColor="@color/pos_gray_800"
                         android:textSize="28sp"
                         android:textStyle="bold|italic"
                         android:letterSpacing="0.01" />
@@ -74,7 +74,7 @@
                             android:paddingEnd="12dp"
                             android:paddingBottom="8dp"
                             android:text="SYNC READY"
-                            android:textColor="@color/pos_blue_light"
+                            android:textColor="@color/pos_gray_600"
                             android:textSize="11sp"
                             android:textStyle="bold" />
 
@@ -88,7 +88,7 @@
                             android:paddingEnd="12dp"
                             android:paddingBottom="8dp"
                             android:text="PRINTER OK"
-                            android:textColor="@color/pos_gold_light"
+                            android:textColor="@color/pos_gray_700"
                             android:textSize="11sp"
                             android:textStyle="bold" />
 
@@ -128,7 +128,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
                             android:text="Admin"
-                            android:textColor="@color/pos_blue_light"
+                            android:textColor="@color/pos_gray_600"
                             android:textSize="12sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
@@ -178,10 +178,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginBottom="8dp"
-                    android:backgroundTint="@color/pos_gold_light"
+                    android:backgroundTint="@color/pos_gray_800"
                     android:text="Sinkron"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     app:cornerRadius="18dp"
@@ -318,7 +318,7 @@
                         android:paddingEnd="12dp"
                         android:paddingBottom="8dp"
                         android:text="All"
-                        android:textColor="@color/pos_gold_light"
+                        android:textColor="@color/pos_gray_700"
                         android:textSize="11sp"
                         android:textStyle="bold" />
 
@@ -332,7 +332,7 @@
                         android:paddingEnd="12dp"
                         android:paddingBottom="8dp"
                         android:text="Signature"
-                        android:textColor="@color/pos_blue_light"
+                        android:textColor="@color/pos_gray_600"
                         android:textSize="11sp"
                         android:textStyle="bold" />
 
@@ -442,10 +442,10 @@
                             android:id="@+id/btnRetrySync"
                             android:layout_width="110dp"
                             android:layout_height="36dp"
-                            android:backgroundTint="@color/pos_gold"
+                            android:backgroundTint="@color/pos_gray_800"
                             android:text="Retry"
                             android:textAllCaps="false"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             app:cornerRadius="18dp"
@@ -481,7 +481,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Perfume"
-                                android:textColor="@color/pos_gold_light"
+                                android:textColor="@color/pos_gray_700"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -490,7 +490,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Rp 0"
-                                android:textColor="@color/pos_gold_light"
+                                android:textColor="@color/pos_gray_800"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -506,7 +506,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Alcohol"
-                                android:textColor="@color/pos_blue_light"
+                                android:textColor="@color/pos_gray_600"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -524,7 +524,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Rp 0"
-                                android:textColor="@color/pos_blue_light"
+                                android:textColor="@color/pos_gray_700"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -540,7 +540,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Bottle"
-                                android:textColor="@color/pos_blue_light"
+                                android:textColor="@color/pos_gray_600"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -549,7 +549,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Rp 0"
-                                android:textColor="@color/pos_blue_light"
+                                android:textColor="@color/pos_gray_700"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -571,7 +571,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Grand Total"
-                                android:textColor="@color/pos_gold_light"
+                                android:textColor="@color/pos_gray_800"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
@@ -580,7 +580,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Rp 0"
-                                android:textColor="@color/pos_gold_light"
+                                android:textColor="@color/pos_gray_900"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -609,7 +609,7 @@
                             android:layout_height="wrap_content"
                             android:paddingBottom="8dp"
                             android:text="Perfume Cart"
-                            android:textColor="@color/pos_gold_light"
+                            android:textColor="@color/pos_gray_700"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:letterSpacing="0.01" />
@@ -629,7 +629,7 @@
                             android:layout_marginTop="10dp"
                             android:paddingBottom="8dp"
                             android:text="Bottle Cart"
-                            android:textColor="@color/pos_blue_light"
+                            android:textColor="@color/pos_gray_600"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:letterSpacing="0.01" />
@@ -651,10 +651,10 @@
                     android:layout_height="56dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="4dp"
-                    android:backgroundTint="@color/pos_gold_light"
+                    android:backgroundTint="@color/pos_gray_800"
                     android:text="Complete Laboratory Sale"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="17sp"
                     android:textStyle="bold"
                     android:letterSpacing="0.04"
